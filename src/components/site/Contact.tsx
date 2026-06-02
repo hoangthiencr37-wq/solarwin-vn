@@ -13,7 +13,8 @@ export function Contact() {
 
         <div className="mt-14 grid lg:grid-cols-2 gap-8">
           <div className="grid sm:grid-cols-2 gap-4 content-start">
-            <InfoCard icon={Phone} label="Hotline" value="0868 888 826" href="tel:0868888826" highlight />
+            <InfoCard icon={Phone} label="Hotline 1" value="0868 888 826" href="tel:0868888826" highlight />
+            <InfoCard icon={Phone} label="Hotline 2" value="0972 545 686" href="tel:0972545686" highlight />
             <InfoCard icon={Mail} label="Email" value="info@solarwin.vn" href="mailto:info@solarwin.vn" />
             <InfoCard icon={MapPin} label="Trụ sở" value="Đường/72m Vòng xuyến, Vinh Hưng, Nghệ An 43000, Việt Nam" />
             <InfoCard icon={Clock} label="Giờ làm việc" value="T2 – CN: 7:30 – 21:00" />

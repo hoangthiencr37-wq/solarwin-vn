@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoRed from "@/assets/real/solarwin-logo-red.png.asset.json";
 
 const links = [
   { href: "#about", label: "Giới thiệu" },
@@ -29,17 +30,14 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative w-10 h-10 rounded-xl bg-gradient-sun grid place-items-center shadow-solar">
-            <Sun className="w-5 h-5 text-charcoal" strokeWidth={2.5} />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className={`font-bold text-lg tracking-tight ${scrolled ? "text-charcoal" : "text-white"}`}>
-              Solar<span className="text-primary">Win</span>
-            </span>
-            <span className={`text-[10px] font-medium ${scrolled ? "text-muted-foreground" : "text-white/70"}`}>
-              Dựng xây tổ ấm Việt
-            </span>
+        <a href="#top" className="flex items-center gap-3 group">
+          <img
+            src={logoRed.url}
+            alt="Solar Win logo"
+            className="h-12 lg:h-14 w-auto object-contain drop-shadow-md rounded-md"
+          />
+          <span className={`hidden sm:block text-[11px] font-medium leading-tight max-w-[140px] ${scrolled ? "text-muted-foreground" : "text-white/80"}`}>
+            Dựng xây<br/>tổ ấm Việt
           </span>
         </a>
 
