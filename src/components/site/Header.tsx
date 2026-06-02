@@ -5,6 +5,7 @@ const links = [
   { href: "#about", label: "Giới thiệu" },
   { href: "#services", label: "Dịch vụ" },
   { href: "#projects", label: "Dự án" },
+  { href: "#gallery", label: "Hình ảnh" },
   { href: "#why", label: "Tại sao chọn" },
   { href: "#testimonials", label: "Đánh giá" },
   { href: "#contact", label: "Liên hệ" },
