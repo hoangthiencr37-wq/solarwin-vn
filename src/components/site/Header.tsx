@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoRed from "@/assets/real/solarwin-logo-red.png.asset.json";
 
 const links = [
   { href: "#about", label: "Giới thiệu" },
