@@ -15,14 +15,14 @@ export function Contact() {
           <div className="grid sm:grid-cols-2 gap-4 content-start">
             <InfoCard icon={Phone} label="Hotline" value="0868 888 826" href="tel:0868888826" highlight />
             <InfoCard icon={Mail} label="Email" value="info@solarwin.vn" href="mailto:info@solarwin.vn" />
-            <InfoCard icon={MapPin} label="Trụ sở" value="TP. Vinh, Nghệ An" />
+            <InfoCard icon={MapPin} label="Trụ sở" value="Đường/72m Vòng xuyến, Vinh Hưng, Nghệ An 43000, Việt Nam" />
             <InfoCard icon={Clock} label="Giờ làm việc" value="T2 – CN: 7:30 – 21:00" />
           </div>
 
           <div className="rounded-3xl overflow-hidden shadow-elevated border border-border h-[400px]">
             <iframe
               title="Bản đồ Solar Win"
-              src="https://www.google.com/maps?q=Vinh,Nghe+An,Vietnam&output=embed"
+              src="https://www.google.com/maps?q=%C4%90%C6%B0%E1%BB%9Dng%2F72m+V%C3%B2ng+xuy%E1%BA%BFn%2C+Vinh+H%C6%B0ng%2C+Ngh%E1%BB%87+An+43000%2C+Vi%E1%BB%87t+Nam&output=embed"
               className="w-full h-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

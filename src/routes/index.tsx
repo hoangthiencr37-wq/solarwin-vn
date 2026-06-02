@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
           slogan: "Dựng xây tổ ấm Việt",
           telephone: "+84868888826",
           email: "info@solarwin.vn",
-          address: { "@type": "PostalAddress", addressLocality: "Vinh", addressRegion: "Nghệ An", addressCountry: "VN" },
+          address: { "@type": "PostalAddress", streetAddress: "Đường/72m Vòng xuyến, Vinh Hưng", addressRegion: "Nghệ An", postalCode: "43000", addressCountry: "VN" },
           areaServed: "Nghệ An",
         }),
       },
