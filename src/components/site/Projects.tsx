@@ -1,13 +1,13 @@
 import factory from "@/assets/project-factory.jpg";
 import roofVilla from "@/assets/real/roof-villa.jpg.asset.json";
-import ev from "@/assets/project-ev.jpg";
+import evHanoi from "@/assets/real/ev-station-hanoi.png.asset.json";
 import battery from "@/assets/project-battery.jpg";
 import { MapPin, Zap, TrendingDown, Activity } from "lucide-react";
 
 const projects = [
   { img: roofVilla.url, title: "Gia đình anh Hùng", power: "10 kWp", location: "TP. Vinh, Nghệ An", output: "1.350 kWh/tháng", saving: "Tiết kiệm 3,2 triệu/tháng" },
   { img: factory, title: "Nhà xưởng may mặc Hoàng Gia", power: "250 kWp", location: "KCN Bắc Vinh", output: "32.000 kWh/tháng", saving: "Tiết kiệm 78 triệu/tháng" },
-  { img: ev, title: "Trạm sạc xe điện Cửa Lò", power: "60 kWp", location: "Thị xã Cửa Lò", output: "8.100 kWh/tháng", saving: "12 trụ sạc 24/7" },
+  { img: evHanoi.url, title: "Trạm sạc xe điện SolarEV Hà Nội", power: "60 kWp", location: "Hà Nội", output: "8.100 kWh/tháng", saving: "12 trụ sạc 24/7" },
   { img: battery, title: "Hệ thống lưu trữ gia đình", power: "8 kWp + 15 kWh", location: "Diễn Châu, Nghệ An", output: "1.080 kWh/tháng", saving: "Backup 12 giờ mất điện" },
 ];
 
