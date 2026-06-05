@@ -6,14 +6,28 @@ import installKitchen from "@/assets/real/install-kitchen.jpg.asset.json";
 import solaxInverter from "@/assets/real/solax-inverter.jpg.asset.json";
 import solaxPylontech from "@/assets/real/solax-pylontech.jpg.asset.json";
 import solaxBatteryFull from "@/assets/real/solax-battery-full.jpg.asset.json";
+import auxsolLithium from "@/assets/real/gallery-auxsol-lithium.jpg.asset.json";
+import htCanopy from "@/assets/real/gallery-ht-canopy.jpg.asset.json";
+import solaxPylonSingle from "@/assets/real/gallery-solax-pylon-single.jpg.asset.json";
+import solaxPylonDual from "@/assets/real/gallery-solax-pylon-dual.jpg.asset.json";
+import solaxLaundry from "@/assets/real/gallery-solax-laundry.jpg.asset.json";
+import techThumbs from "@/assets/real/gallery-tech-thumbs.jpg.asset.json";
+import htHotelFacade from "@/assets/real/gallery-ht-hotel-facade.jpg.asset.json";
 import { Camera } from "lucide-react";
 
 const photos = [
   { src: roofVilla.url, title: "Hệ áp mái biệt thự – TP. Vinh", tag: "Mái nhà phố" , span: "md:col-span-2 md:row-span-2" },
+  { src: htCanopy.url, title: "Mái canopy solar – HT Hotel", tag: "Khách sạn" },
   { src: solaxPylontech.url, title: "Inverter SolaX + Pin Pylontech", tag: "Hybrid + Lưu trữ" },
   { src: solaxBatteryFull.url, title: "Tủ điện Solar – Inverter – Pin", tag: "Hệ trọn gói" },
+  { src: auxsolLithium.url, title: "Hybrid AUXSOL + Lithium Valley", tag: "Backup gia đình" },
+  { src: solaxPylonDual.url, title: "SolaX + 2 Pin Pylontech song song", tag: "Lưu trữ mở rộng" },
+  { src: htHotelFacade.url, title: "Dự án HT Hotel & Coffee", tag: "Doanh nghiệp" },
+  { src: solaxPylonSingle.url, title: "SolaX Hybrid + Pylontech", tag: "Hộ gia đình" },
   { src: inverterLithium.url, title: "Hệ Hybrid Lithium Valley", tag: "Backup gia đình" },
   { src: solaxInverter.url, title: "Inverter SolaX 5kW", tag: "Lắp đặt nội thất" },
+  { src: solaxLaundry.url, title: "SolaX + ATS phòng giặt", tag: "Hộ gia đình" },
+  { src: techThumbs.url, title: "Kỹ thuật Solar Win bàn giao", tag: "Đội ngũ kỹ thuật" },
   { src: installKitchen.url, title: "Lắp inverter tại P. Vinh Phú", tag: "Hộ gia đình" },
   { src: pylontechDelivery.url, title: "Giao Pylontech Fidus Battery", tag: "Thiết bị chính hãng" },
   { src: panelConnector.url, title: "Đấu nối MC4 chuẩn IP67", tag: "Thi công kỹ thuật" },
