@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VatTuRouteImport } from './routes/vat-tu'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VatTuRoute = VatTuRouteImport.update({
+  id: '/vat-tu',
+  path: '/vat-tu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/vat-tu': typeof VatTuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/vat-tu': typeof VatTuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/vat-tu': typeof VatTuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/vat-tu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/vat-tu'
+  id: '__root__' | '/' | '/vat-tu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  VatTuRoute: typeof VatTuRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vat-tu': {
+      id: '/vat-tu'
+      path: '/vat-tu'
+      fullPath: '/vat-tu'
+      preLoaderRoute: typeof VatTuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  VatTuRoute: VatTuRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
