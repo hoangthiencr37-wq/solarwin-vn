@@ -3,13 +3,13 @@ import { Menu, X } from "lucide-react";
 import logoRed from "@/assets/real/solarwin-logo-new.jpg.asset.json";
 
 const links = [
-  { href: "#about", label: "Giới thiệu" },
-  { href: "#services", label: "Dịch vụ" },
-  { href: "#projects", label: "Dự án" },
-  { href: "#gallery", label: "Hình ảnh" },
-  { href: "#why", label: "Tại sao chọn" },
-  { href: "#testimonials", label: "Đánh giá" },
-  { href: "#contact", label: "Liên hệ" },
+  { href: "/#about", label: "Giới thiệu" },
+  { href: "/#services", label: "Dịch vụ" },
+  { href: "/#projects", label: "Dự án" },
+  { href: "/vat-tu", label: "Vật tư" },
+  { href: "/#gallery", label: "Hình ảnh" },
+  { href: "/#testimonials", label: "Đánh giá" },
+  { href: "/#contact", label: "Liên hệ" },
 ];
 
 export function Header() {
