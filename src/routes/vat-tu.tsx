@@ -11,6 +11,7 @@ import solaxBatteryFull from "@/assets/real/solax-battery-full.jpg.asset.json";
 import pylontechDelivery from "@/assets/real/pylontech-delivery.jpg.asset.json";
 import inverterLithium from "@/assets/real/inverter-lithium.jpg.asset.json";
 import solaxInverter from "@/assets/real/solax-inverter.jpg.asset.json";
+import pylontechInverter from "@/assets/real/pylontech-inverter.png.asset.json";
 import roofVilla from "@/assets/real/roof-villa.jpg.asset.json";
 import panelConnector from "@/assets/real/panel-connector.jpg.asset.json";
 import installKitchen from "@/assets/real/install-kitchen.jpg.asset.json";
@@ -215,6 +216,37 @@ function VatTuPage() {
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHeader icon={Zap} eyebrow="02 — Inverter" title="Biến tần On-grid & Hybrid" desc="6 thương hiệu inverter Solar Win tin dùng cho hộ gia đình và doanh nghiệp." />
+
+            {/* Featured: Pylontech All-in-one Inverter */}
+            <div className="mb-10 rounded-3xl overflow-hidden bg-card border border-border shadow-elevated grid md:grid-cols-2 gap-0">
+              <div className="bg-gradient-to-br from-secondary/40 to-secondary/10 flex items-center justify-center p-8">
+                <img
+                  src={pylontechInverter.url}
+                  alt="Biến tần Pylontech Hybrid All-in-one"
+                  className="max-h-[420px] w-auto object-contain drop-shadow-xl"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-8 lg:p-10 flex flex-col justify-center">
+                <span className="text-xs font-semibold tracking-widest text-primary uppercase">Featured · Pylontech</span>
+                <h3 className="mt-2 text-2xl lg:text-3xl font-bold">Biến tần Hybrid Pylontech All-in-one</h3>
+                <p className="mt-3 text-muted-foreground">
+                  Giải pháp tích hợp inverter Hybrid + BMS pin lưu trữ trong một thiết bị duy nhất – thiết kế gọn, lắp đặt nhanh, tối ưu cho hộ gia đình và biệt thự hiện đại.
+                </p>
+                <dl className="mt-5 grid grid-cols-2 gap-4 text-sm">
+                  <div><dt className="text-xs text-muted-foreground">Công suất</dt><dd className="font-semibold">5 – 12 kW</dd></div>
+                  <div><dt className="text-xs text-muted-foreground">Hiệu suất</dt><dd className="font-semibold">≥ 97.6%</dd></div>
+                  <div><dt className="text-xs text-muted-foreground">Bảo hành</dt><dd className="font-semibold">10 năm</dd></div>
+                  <div><dt className="text-xs text-muted-foreground">Chuẩn pin</dt><dd className="font-semibold">LiFePO4</dd></div>
+                </dl>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <span className="text-xs px-3 py-1 rounded-full bg-solar/20 text-charcoal font-semibold">All-in-one</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold">Hybrid</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-secondary text-foreground font-semibold">EPS backup</span>
+                </div>
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {inverters.map(i => (
                 <div key={i.brand} className="rounded-2xl bg-card border border-border shadow-card hover:shadow-elevated transition-all p-6">
