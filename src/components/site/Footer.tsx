@@ -14,44 +14,105 @@ export function Footer() {
                 className="w-10 h-10 object-contain rounded-md"
               />
               <div>
-                <div className="font-bold text-lg">Solar<span className="text-solar">Win</span></div>
+                <div className="font-bold text-lg">
+                  Solar<span className="text-solar">Win</span>
+                </div>
                 <div className="text-xs text-white/60">Dựng xây tổ ấm Việt</div>
               </div>
             </div>
             <p className="mt-4 text-sm text-white/70">
-              Solar Win – Chuyên tư vấn, thiết kế và thi công điện năng lượng mặt trời tại Nghệ An và các tỉnh lân cận.
+              Solar Win – Chuyên tư vấn, thiết kế và thi công điện năng lượng mặt trời tại Nghệ An
+              và các tỉnh lân cận.
             </p>
           </div>
 
           <div>
             <h4 className="font-bold mb-4 text-solar">Dịch vụ</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              <li><a href="#services" className="hover:text-solar">Điện mặt trời hộ gia đình</a></li>
-              <li><a href="#services" className="hover:text-solar">Điện mặt trời doanh nghiệp</a></li>
-              <li><a href="#services" className="hover:text-solar">Pin lưu trữ – Hybrid</a></li>
-              <li><a href="#services" className="hover:text-solar">Trạm sạc xe điện</a></li>
-              <li><a href="#services" className="hover:text-solar">Bảo trì & nâng cấp</a></li>
+              <li>
+                <a href="#services" className="hover:text-solar">
+                  Điện mặt trời hộ gia đình
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-solar">
+                  Điện mặt trời doanh nghiệp
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-solar">
+                  Pin lưu trữ – Hybrid
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-solar">
+                  Trạm sạc xe điện
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-solar">
+                  Bảo trì & nâng cấp
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-4 text-solar">Liên kết</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              <li><a href="#about" className="hover:text-solar">Giới thiệu</a></li>
-              <li><a href="#projects" className="hover:text-solar">Dự án</a></li>
-              <li><a href="#why" className="hover:text-solar">Tại sao chọn</a></li>
-              <li><a href="#testimonials" className="hover:text-solar">Đánh giá</a></li>
-              <li><a href="#quote" className="hover:text-solar">Báo giá</a></li>
+              <li>
+                <a href="#about" className="hover:text-solar">
+                  Giới thiệu
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-solar">
+                  Dự án
+                </a>
+              </li>
+              <li>
+                <a href="#why" className="hover:text-solar">
+                  Tại sao chọn
+                </a>
+              </li>
+              <li>
+                <a href="#testimonials" className="hover:text-solar">
+                  Đánh giá
+                </a>
+              </li>
+              <li>
+                <a href="#quote" className="hover:text-solar">
+                  Báo giá
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-4 text-solar">Liên hệ</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 text-solar" /> <a href="tel:0868888826" className="hover:text-solar">0868 888 826</a></li>
-              <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 text-solar" /> <a href="tel:0972545686" className="hover:text-solar">0972 545 686</a></li>
-              <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 text-solar" /> <a href="mailto:info@solarwin.vn" className="hover:text-solar">info@solarwin.vn</a></li>
-              <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-solar" /> Đường/72m Vòng xuyến, Vinh Hưng, Nghệ An 43000, Việt Nam</li>
+              <li className="flex items-start gap-2">
+                <Phone className="w-4 h-4 mt-0.5 text-solar" />{" "}
+                <a href="tel:0868888826" className="hover:text-solar">
+                  0868 888 826
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="w-4 h-4 mt-0.5 text-solar" />{" "}
+                <a href="tel:0972545686" className="hover:text-solar">
+                  0972 545 686
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail className="w-4 h-4 mt-0.5 text-solar" />{" "}
+                <a href="mailto:info@solarwin.vn" className="hover:text-solar">
+                  info@solarwin.vn
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 text-solar" /> Đường/72m Vòng xuyến, Vinh Hưng,
+                Nghệ An 43000, Việt Nam
+              </li>
             </ul>
           </div>
         </div>

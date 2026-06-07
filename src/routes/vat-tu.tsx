@@ -1,24 +1,67 @@
+import { ComponentType } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingActions } from "@/components/site/FloatingActions";
 import { Toaster } from "sonner";
 import {
-  Sun, Zap, Battery, Shield, Cable, Wrench, Cpu, Plug, Phone, MessageSquare, MessageCircle, CheckCircle2, XCircle, Star
+  Sun,
+  Zap,
+  Battery,
+  Shield,
+  Cable,
+  Wrench,
+  Cpu,
+  Plug,
+  Phone,
+  MessageSquare,
+  MessageCircle,
+  CheckCircle2,
+  XCircle,
+  Star,
 } from "lucide-react";
 import logoImg from "@/assets/real/logo.jpg";
 
-// Dynamically import all real JPEG photos uploaded by the user (starts with z)
-const images = import.meta.glob<{ default: string }>("../assets/real/z*.jpg", { eager: true });
-const imageList = Object.values(images).map((mod) => mod.default);
+import img_z0825_600 from "@/assets/real/z7910630825600_3eec94885632d4568239b97536fedb0a.jpg";
+import img_z0825_704 from "@/assets/real/z7910630825704_a4f39c31b93124a61be6787d47c4e478.jpg";
+import img_z0921 from "@/assets/real/Inverter SolaX 5kW.jpg";
+import img_z0969_185 from "@/assets/real/vat_tu/Biến tần Hybrid Pylontech All-in-one.png";
+import img_z2597 from "@/assets/real/vat_tu/Đầu nối MC4 chính hãng.jpg";
+
+import pylonUS3000C from "@/assets/real/vat_tu/Pylontech US3000C.jpg";
+import pylonUS5000C from "@/assets/real/vat_tu/Pylontech US5000C.jpg";
+import pylonFidusPlus16 from "@/assets/real/vat_tu/Pylontech Fidus Plus 16 kWh.jpg";
+import pylonForceH1 from "@/assets/real/vat_tu/Pylontech Force H1.jpg";
+import pylonForceH2 from "@/assets/real/vat_tu/Pylontech Force H2.jpg";
+import pylonForceH3 from "@/assets/real/vat_tu/Pylontech Force H3.jpg";
+
+import jaSolarImg from "@/assets/real/vat_tu/JA Solar.webp";
+import longiSolarImg from "@/assets/real/vat_tu/LONGi Solar.webp";
+import jinkoSolarImg from "@/assets/real/vat_tu/Jinko Solar.webp";
+import trinaSolarImg from "@/assets/real/vat_tu/Trina Solar.webp";
+import canadianSolarImg from "@/assets/real/vat_tu/Canadian Solar.webp";
+
+import deyeImg from "@/assets/real/vat_tu/Deye.jpg";
+import growattImg from "@/assets/real/vat_tu/Growatt.jpg";
+import huaweiImg from "@/assets/real/vat_tu/Huawei biến tần.jpg";
+import solaxImg from "@/assets/real/vat_tu/SolaX.png";
+import solisImg from "@/assets/real/vat_tu/Solis.webp";
+import sungrowImg from "@/assets/real/vat_tu/Sungrow.png";
 
 export const Route = createFileRoute("/vat-tu")({
   head: () => ({
     meta: [
       { title: "Danh mục vật tư điện mặt trời – Solar Win | Pylontech, SolaX, JA Solar" },
-      { name: "description", content: "Catalogue đầy đủ vật tư điện năng lượng mặt trời: tấm pin JA Solar/LONGi/Jinko, inverter SolaX/Huawei/Solis, pin lưu trữ Pylontech US3000C, US5000, Fidus Plus 16kWh, Force H1/H2/H3, tủ điện AC/DC, MC4, khung giá đỡ." },
+      {
+        name: "description",
+        content:
+          "Catalogue đầy đủ vật tư điện năng lượng mặt trời: tấm pin JA Solar/LONGi/Jinko, inverter SolaX/Huawei/Solis, pin lưu trữ Pylontech US3000C, US5000, Fidus Plus 16kWh, Force H1/H2/H3, tủ điện AC/DC, MC4, khung giá đỡ.",
+      },
       { property: "og:title", content: "Danh mục vật tư điện mặt trời – Solar Win" },
-      { property: "og:description", content: "Pylontech – Sản phẩm chủ lực Solar Win. Catalogue vật tư đầy đủ, chính hãng." },
+      {
+        property: "og:description",
+        content: "Pylontech – Sản phẩm chủ lực Solar Win. Catalogue vật tư đầy đủ, chính hãng.",
+      },
       { property: "og:image", content: logoImg },
     ],
     links: [{ rel: "canonical", href: "/vat-tu" }],
@@ -29,44 +72,284 @@ export const Route = createFileRoute("/vat-tu")({
 /* ============== DATA ============== */
 
 const panels = [
-  { brand: "JA Solar", origin: "Trung Quốc", power: "550 – 620Wp", cell: "N-Type TOPCon / Mono PERC", eff: "21.5 – 22.5%", warrantyP: "15 năm", warrantyE: "30 năm (≥87.4%)", pros: "Hiệu suất cao, bền, giá cạnh tranh", cons: "Cần kỹ thuật lắp chuẩn", rating: 5 },
-  { brand: "LONGi Solar", origin: "Trung Quốc", power: "550 – 620Wp", cell: "Hi-MO 6 / Hi-MO 7 N-Type", eff: "22.0 – 22.8%", warrantyP: "15 năm", warrantyE: "30 năm", pros: "Top 1 thế giới, công nghệ Hi-MO mới", cons: "Giá cao hơn JA", rating: 5 },
-  { brand: "Jinko Solar", origin: "Trung Quốc", power: "545 – 620Wp", cell: "Tiger Neo N-Type", eff: "21.8 – 22.5%", warrantyP: "12-15 năm", warrantyE: "30 năm", pros: "Tiger Neo nổi tiếng, ổn định", cons: "Hàng giả nhiều, cần đại lý uy tín", rating: 5 },
-  { brand: "Trina Solar", origin: "Trung Quốc", power: "550 – 605Wp", cell: "Vertex N-Type", eff: "21.5 – 22.3%", warrantyP: "12 năm", warrantyE: "25 năm", pros: "Thương hiệu Tier 1 lâu đời", cons: "Mẫu mã ít đa dạng", rating: 4 },
-  { brand: "Canadian Solar", origin: "Canada/TQ", power: "550 – 600Wp", cell: "HiKu / TOPHiKu N-Type", eff: "21.3 – 22.0%", warrantyP: "12 năm", warrantyE: "25 năm", pros: "Thương hiệu Bắc Mỹ, chất lượng tốt", cons: "Giá nhỉnh hơn mặt bằng", rating: 4 },
+  {
+    brand: "JA Solar",
+    origin: "Trung Quốc",
+    power: "550 – 620Wp",
+    cell: "N-Type TOPCon / Mono PERC",
+    eff: "21.5 – 22.5%",
+    warrantyP: "15 năm",
+    warrantyE: "30 năm (≥87.4%)",
+    pros: "Hiệu suất cao, bền, giá cạnh tranh",
+    cons: "Cần kỹ thuật lắp chuẩn",
+    rating: 5,
+    img: jaSolarImg,
+  },
+  {
+    brand: "LONGi Solar",
+    origin: "Trung Quốc",
+    power: "550 – 620Wp",
+    cell: "Hi-MO 6 / Hi-MO 7 N-Type",
+    eff: "22.0 – 22.8%",
+    warrantyP: "15 năm",
+    warrantyE: "30 năm",
+    pros: "Top 1 thế giới, công nghệ Hi-MO mới",
+    cons: "Giá cao hơn JA",
+    rating: 5,
+    img: longiSolarImg,
+  },
+  {
+    brand: "Jinko Solar",
+    origin: "Trung Quốc",
+    power: "545 – 620Wp",
+    cell: "Tiger Neo N-Type",
+    eff: "21.8 – 22.5%",
+    warrantyP: "12-15 năm",
+    warrantyE: "30 năm",
+    pros: "Tiger Neo nổi tiếng, ổn định",
+    cons: "Hàng giả nhiều, cần đại lý uy tín",
+    rating: 5,
+    img: jinkoSolarImg,
+  },
+  {
+    brand: "Trina Solar",
+    origin: "Trung Quốc",
+    power: "550 – 605Wp",
+    cell: "Vertex N-Type",
+    eff: "21.5 – 22.3%",
+    warrantyP: "12 năm",
+    warrantyE: "25 năm",
+    pros: "Thương hiệu Tier 1 lâu đời",
+    cons: "Mẫu mã ít đa dạng",
+    rating: 4,
+    img: trinaSolarImg,
+  },
+  {
+    brand: "Canadian Solar",
+    origin: "Canada/TQ",
+    power: "550 – 600Wp",
+    cell: "HiKu / TOPHiKu N-Type",
+    eff: "21.3 – 22.0%",
+    warrantyP: "12 năm",
+    warrantyE: "25 năm",
+    pros: "Thương hiệu Bắc Mỹ, chất lượng tốt",
+    cons: "Giá nhỉnh hơn mặt bằng",
+    rating: 4,
+    img: canadianSolarImg,
+  },
 ];
 
 const inverters = [
-  { brand: "Solis", type: "On-grid / Hybrid", power: "3 – 110kW", warranty: "5-10 năm", eff: "98.3%", ip: "IP66", pros: "Bền, ổn định, hậu mãi tốt", cons: "App giám sát cơ bản" },
-  { brand: "Huawei", type: "On-grid / Hybrid Luna", power: "3 – 100kW", warranty: "10 năm", eff: "98.6%", ip: "IP65", pros: "AI tối ưu, chống cháy, app SUN2000 mạnh", cons: "Giá cao" },
-  { brand: "SolaX", type: "Hybrid X1/X3", power: "3 – 30kW", warranty: "5-10 năm", eff: "98.0%", ip: "IP65", pros: "Tương thích pin tốt, EPS dự phòng nhanh", cons: "Nhiều dòng dễ chọn nhầm" },
-  { brand: "Sungrow", type: "On-grid / Hybrid SH", power: "3 – 250kW", warranty: "10 năm", eff: "98.4%", ip: "IP66", pros: "Top thế giới về inverter, bền bỉ", cons: "Cấu hình hybrid khó hơn" },
-  { brand: "Growatt", type: "On-grid / Hybrid SPH", power: "3 – 50kW", warranty: "5-10 năm", eff: "97.6%", ip: "IP65", pros: "Giá rẻ, phổ biến, dễ thay thế", cons: "Tuổi thọ trung bình" },
-  { brand: "Deye", type: "Hybrid Single/3 pha", power: "3 – 50kW", warranty: "5-10 năm", eff: "97.6%", ip: "IP65", pros: "Hybrid mạnh, hỗ trợ off-grid tốt", cons: "App cần đăng ký SolarMan" },
+  {
+    brand: "Solis",
+    type: "On-grid / Hybrid",
+    power: "3 – 110kW",
+    warranty: "5-10 năm",
+    eff: "98.3%",
+    ip: "IP66",
+    pros: "Bền, ổn định, hậu mãi tốt",
+    cons: "App giám sát cơ bản",
+    img: solisImg,
+  },
+  {
+    brand: "Huawei",
+    type: "On-grid / Hybrid Luna",
+    power: "3 – 100kW",
+    warranty: "10 năm",
+    eff: "98.6%",
+    ip: "IP65",
+    pros: "AI tối ưu, chống cháy, app SUN2000 mạnh",
+    cons: "Giá cao",
+    img: huaweiImg,
+  },
+  {
+    brand: "SolaX",
+    type: "Hybrid X1/X3",
+    power: "3 – 30kW",
+    warranty: "5-10 năm",
+    eff: "98.0%",
+    ip: "IP65",
+    pros: "Tương thích pin tốt, EPS dự phòng nhanh",
+    cons: "Nhiều dòng dễ chọn nhầm",
+    img: solaxImg,
+  },
+  {
+    brand: "Sungrow",
+    type: "On-grid / Hybrid SH",
+    power: "3 – 250kW",
+    warranty: "10 năm",
+    eff: "98.4%",
+    ip: "IP66",
+    pros: "Top thế giới về inverter, bền bỉ",
+    cons: "Cấu hình hybrid khó hơn",
+    img: sungrowImg,
+  },
+  {
+    brand: "Growatt",
+    type: "On-grid / Hybrid SPH",
+    power: "3 – 50kW",
+    warranty: "5-10 năm",
+    eff: "97.6%",
+    ip: "IP65",
+    pros: "Giá rẻ, phổ biến, dễ thay thế",
+    cons: "Tuổi thọ trung bình",
+    img: growattImg,
+  },
+  {
+    brand: "Deye",
+    type: "Hybrid Single/3 pha",
+    power: "3 – 50kW",
+    warranty: "5-10 năm",
+    eff: "97.6%",
+    ip: "IP65",
+    pros: "Hybrid mạnh, hỗ trợ off-grid tốt",
+    cons: "App cần đăng ký SolarMan",
+    img: deyeImg,
+  },
 ];
 
 const pylontechModels = [
-  { name: "Pylontech US3000C", cap: "3.5 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[3] || "",
-    pros: ["Giá hợp lý nhất phân khúc", "Module nhỏ, dễ vận chuyển", "Mở rộng song song dễ dàng"], use: "Hộ gia đình nhỏ, backup cơ bản" },
-  { name: "Pylontech US5000", cap: "4.8 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[4] || "",
-    pros: ["Bán chạy nhất Việt Nam", "Tương thích SolaX, Deye, Sungrow, Growatt", "Hiệu suất xả 100% DOD"], use: "Hộ gia đình 5–15 kWh" },
-  { name: "Pylontech Fidus Plus 16 kWh", cap: "16 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[2] || "",
-    pros: ["Thiết kế dạng tủ đứng cao cấp", "Lắp đặt nhanh – plug & play", "Phù hợp biệt thự, nhà phố lớn"], use: "Biệt thự, hệ Hybrid 8–15 kWp" },
-  { name: "Pylontech Force H1", cap: "3.55 – 17.76 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[5] || "",
-    pros: ["Điện áp cao, hiệu suất tốt", "Modular dễ mở rộng", "Tích hợp BMS thông minh"], use: "Inverter HV: Sungrow, GoodWe" },
-  { name: "Pylontech Force H2", cap: "7.1 – 24.86 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[2] || "",
-    pros: ["HV thế hệ mới", "Modular, dung lượng linh hoạt", "Hiệu suất sạc/xả >95%"], use: "Hệ 10–25 kWh cao cấp" },
-  { name: "Pylontech Force H3", cap: "10.65 – 28.4 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[4] || "",
-    pros: ["Dòng cao cấp nhất Pylontech", "Thiết kế hiện đại, gọn", "Tương thích inverter HV mới nhất"], use: "Biệt thự lớn, doanh nghiệp nhỏ" },
+  {
+    name: "Pylontech US3000C",
+    cap: "3.5 kWh",
+    volt: "48V (LV)",
+    chem: "LiFePO4",
+    cycle: "≥6.000 chu kỳ",
+    img: pylonUS3000C,
+    pros: ["Giá hợp lý nhất phân khúc", "Module nhỏ, dễ vận chuyển", "Mở rộng song song dễ dàng"],
+    use: "Hộ gia đình nhỏ, backup cơ bản",
+  },
+  {
+    name: "Pylontech US5000",
+    cap: "4.8 kWh",
+    volt: "48V (LV)",
+    chem: "LiFePO4",
+    cycle: "≥6.000 chu kỳ",
+    img: pylonUS5000C,
+    pros: [
+      "Bán chạy nhất Việt Nam",
+      "Tương thích SolaX, Deye, Sungrow, Growatt",
+      "Hiệu suất xả 100% DOD",
+    ],
+    use: "Hộ gia đình 5–15 kWh",
+  },
+  {
+    name: "Pylontech Fidus Plus 16 kWh",
+    cap: "16 kWh",
+    volt: "48V (LV)",
+    chem: "LiFePO4",
+    cycle: "≥6.000 chu kỳ",
+    img: pylonFidusPlus16,
+    pros: [
+      "Thiết kế dạng tủ đứng cao cấp",
+      "Lắp đặt nhanh – plug & play",
+      "Phù hợp biệt thự, nhà phố lớn",
+    ],
+    use: "Biệt thự, hệ Hybrid 8–15 kWp",
+  },
+  {
+    name: "Pylontech Force H1",
+    cap: "3.55 – 17.76 kWh",
+    volt: "High Voltage",
+    chem: "LiFePO4",
+    cycle: "≥6.000 chu kỳ",
+    img: pylonForceH1,
+    pros: ["Điện áp cao, hiệu suất tốt", "Modular dễ mở rộng", "Tích hợp BMS thông minh"],
+    use: "Inverter HV: Sungrow, GoodWe",
+  },
+  {
+    name: "Pylontech Force H2",
+    cap: "7.1 – 24.86 kWh",
+    volt: "High Voltage",
+    chem: "LiFePO4",
+    cycle: "≥6.000 chu kỳ",
+    img: pylonForceH2,
+    pros: ["HV thế hệ mới", "Modular, dung lượng linh hoạt", "Hiệu suất sạc/xả >95%"],
+    use: "Hệ 10–25 kWh cao cấp",
+  },
+  {
+    name: "Pylontech Force H3",
+    cap: "10.65 – 28.4 kWh",
+    volt: "High Voltage",
+    chem: "LiFePO4",
+    cycle: "≥6.000 chu kỳ",
+    img: pylonForceH3,
+    pros: [
+      "Dòng cao cấp nhất Pylontech",
+      "Thiết kế hiện đại, gọn",
+      "Tương thích inverter HV mới nhất",
+    ],
+    use: "Biệt thự lớn, doanh nghiệp nhỏ",
+  },
 ];
 
 const pylonCompare = [
-  { brand: "Pylontech", chem: "LiFePO4", cycle: "6.000+", stab: "★★★★★", expand: "Rất tốt", compat: "Rộng nhất", warranty: "10 năm", price: "Trung – cao", overall: "★★★★★" },
-  { brand: "Huawei Luna", chem: "LiFePO4", cycle: "6.000", stab: "★★★★★", expand: "Tốt (chỉ Huawei)", compat: "Chỉ Huawei", warranty: "10 năm", price: "Cao", overall: "★★★★★" },
-  { brand: "BYD", chem: "LiFePO4", cycle: "6.000", stab: "★★★★★", expand: "Tốt", compat: "Rộng (HV)", warranty: "10 năm", price: "Cao", overall: "★★★★½" },
-  { brand: "Dyness", chem: "LiFePO4", cycle: "6.000", stab: "★★★★", expand: "Tốt", compat: "Rộng", warranty: "10 năm", price: "Trung", overall: "★★★★" },
-  { brand: "Zetara", chem: "LiFePO4", cycle: "6.000", stab: "★★★★", expand: "Khá", compat: "Trung bình", warranty: "10 năm", price: "Thấp – trung", overall: "★★★½" },
-  { brand: "ZETATECH", chem: "LiFePO4", cycle: "5.000+", stab: "★★★½", expand: "Khá", compat: "Hạn chế", warranty: "5-10 năm", price: "Thấp", overall: "★★★" },
+  {
+    brand: "Pylontech",
+    chem: "LiFePO4",
+    cycle: "6.000+",
+    stab: "★★★★★",
+    expand: "Rất tốt",
+    compat: "Rộng nhất",
+    warranty: "10 năm",
+    price: "Trung – cao",
+    overall: "★★★★★",
+  },
+  {
+    brand: "Huawei Luna",
+    chem: "LiFePO4",
+    cycle: "6.000",
+    stab: "★★★★★",
+    expand: "Tốt (chỉ Huawei)",
+    compat: "Chỉ Huawei",
+    warranty: "10 năm",
+    price: "Cao",
+    overall: "★★★★★",
+  },
+  {
+    brand: "BYD",
+    chem: "LiFePO4",
+    cycle: "6.000",
+    stab: "★★★★★",
+    expand: "Tốt",
+    compat: "Rộng (HV)",
+    warranty: "10 năm",
+    price: "Cao",
+    overall: "★★★★½",
+  },
+  {
+    brand: "Dyness",
+    chem: "LiFePO4",
+    cycle: "6.000",
+    stab: "★★★★",
+    expand: "Tốt",
+    compat: "Rộng",
+    warranty: "10 năm",
+    price: "Trung",
+    overall: "★★★★",
+  },
+  {
+    brand: "Zetara",
+    chem: "LiFePO4",
+    cycle: "6.000",
+    stab: "★★★★",
+    expand: "Khá",
+    compat: "Trung bình",
+    warranty: "10 năm",
+    price: "Thấp – trung",
+    overall: "★★★½",
+  },
+  {
+    brand: "ZETATECH",
+    chem: "LiFePO4",
+    cycle: "5.000+",
+    stab: "★★★½",
+    expand: "Khá",
+    compat: "Hạn chế",
+    warranty: "5-10 năm",
+    price: "Thấp",
+    overall: "★★★",
+  },
 ];
 
 const acdc = [
@@ -104,7 +387,16 @@ const racking = [
   { name: "Chân U", desc: "Khung tam giác / nâng cao góc nghiêng tối ưu" },
 ];
 
-const accessories = ["Ống ruột gà", "Máng cáp", "Dây rút UV", "Đầu cos", "Tem cảnh báo", "Co nhiệt", "Băng keo điện", "Nẹp cáp"];
+const accessories = [
+  "Ống ruột gà",
+  "Máng cáp",
+  "Dây rút UV",
+  "Đầu cos",
+  "Tem cảnh báo",
+  "Co nhiệt",
+  "Băng keo điện",
+  "Nẹp cáp",
+];
 
 const smart = [
   { name: "Smart Meter", desc: "Đo sản lượng, phát/tiêu thụ thời gian thực" },
@@ -115,15 +407,38 @@ const smart = [
 ];
 
 const solutions = [
-  { tag: "Tiết kiệm", title: "Hệ tiết kiệm On-grid", desc: "JA Solar 550W + Solis 5kW – giảm 70-90% hoá đơn điện" },
-  { tag: "Hybrid", title: "Hệ Hybrid phổ biến", desc: "SolaX X1 5kW + Pylontech US5000 (4.8 kWh) – backup mất điện" },
-  { tag: "Cao cấp", title: "Hybrid + Pylontech Fidus Plus 16 kWh", desc: "SolaX/Deye 8kW + Fidus Plus – biệt thự, nhà phố lớn" },
-  { tag: "Premium", title: "Huawei + Pylontech Force H3", desc: "Huawei SUN2000 + Force H3 – hiệu suất & thẩm mỹ tối đa" },
+  {
+    tag: "Tiết kiệm",
+    title: "Hệ tiết kiệm On-grid",
+    desc: "JA Solar 550W + Solis 5kW – giảm 70-90% hoá đơn điện",
+  },
+  {
+    tag: "Hybrid",
+    title: "Hệ Hybrid phổ biến",
+    desc: "SolaX X1 5kW + Pylontech US5000 (4.8 kWh) – backup mất điện",
+  },
+  {
+    tag: "Cao cấp",
+    title: "Hybrid + Pylontech Fidus Plus 16 kWh",
+    desc: "SolaX/Deye 8kW + Fidus Plus – biệt thự, nhà phố lớn",
+  },
+  {
+    tag: "Premium",
+    title: "Huawei + Pylontech Force H3",
+    desc: "Huawei SUN2000 + Force H3 – hiệu suất & thẩm mỹ tối đa",
+  },
 ];
 
 /* ============== UI HELPERS ============== */
 
-function SectionHeader({ icon: Icon, eyebrow, title, desc }: any) {
+interface SectionHeaderProps {
+  icon: ComponentType<{ className?: string }>;
+  eyebrow: string;
+  title: string;
+  desc?: string;
+}
+
+function SectionHeader({ icon: Icon, eyebrow, title, desc }: SectionHeaderProps) {
   return (
     <div className="text-center max-w-3xl mx-auto mb-12">
       <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary uppercase tracking-wider">
@@ -140,7 +455,6 @@ function VatTuPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main className="pt-24">
-
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-br from-charcoal via-charcoal to-primary/40 text-white py-20 lg:py-28">
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,var(--solar),transparent_50%)]" />
@@ -153,13 +467,21 @@ function VatTuPage() {
                 Danh mục <span className="text-gradient-sun">vật tư điện mặt trời</span>
               </h1>
               <p className="mt-5 text-lg text-white/85">
-                Toàn bộ thiết bị – linh kiện chính hãng Solar Win đang phân phối & thi công: tấm pin Tier 1, inverter Hybrid, pin lưu trữ <strong>Pylontech</strong>, tủ điện AC/DC, khung giá đỡ, hệ tiếp địa & phụ kiện giám sát thông minh.
+                Toàn bộ thiết bị – linh kiện chính hãng Solar Win đang phân phối & thi công: tấm pin
+                Tier 1, inverter Hybrid, pin lưu trữ <strong>Pylontech</strong>, tủ điện AC/DC,
+                khung giá đỡ, hệ tiếp địa & phụ kiện giám sát thông minh.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <a href="#pylontech" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-gradient-primary font-semibold shadow-glow hover:scale-105 transition-transform">
+                <a
+                  href="#pylontech"
+                  className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-gradient-primary font-semibold shadow-glow hover:scale-105 transition-transform"
+                >
                   <Battery className="w-4 h-4" /> Xem Pylontech
                 </a>
-                <a href="tel:0972545686" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-white/10 backdrop-blur border border-white/20 font-semibold hover:bg-white/20">
+                <a
+                  href="tel:0972545686"
+                  className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-white/10 backdrop-blur border border-white/20 font-semibold hover:bg-white/20"
+                >
                   <Phone className="w-4 h-4" /> 0972 545 686
                 </a>
               </div>
@@ -170,18 +492,34 @@ function VatTuPage() {
         {/* 1. PANELS */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Sun} eyebrow="01 — Tấm pin" title="Tấm pin năng lượng mặt trời Tier 1" desc="So sánh trực quan 5 thương hiệu hàng đầu thế giới đang được Solar Win lắp đặt." />
+            <SectionHeader
+              icon={Sun}
+              eyebrow="01 — Tấm pin"
+              title="Tấm pin năng lượng mặt trời"
+              desc="So sánh trực quan 5 thương hiệu hàng đầu thế giới đang được Solar Win lắp đặt."
+            />
             <div className="overflow-x-auto rounded-2xl border border-border shadow-card">
               <table className="w-full text-sm min-w-[900px]">
                 <thead className="bg-secondary/60">
                   <tr className="text-left">
-                    {["Thương hiệu","Xuất xứ","Công suất","Công nghệ Cell","Hiệu suất","BH sản phẩm","BH hiệu suất","Đánh giá"].map(h => (
-                      <th key={h} className="px-4 py-3 font-semibold">{h}</th>
+                    {[
+                      "Thương hiệu",
+                      "Xuất xứ",
+                      "Công suất",
+                      "Công nghệ Cell",
+                      "Hiệu suất",
+                      "BH sản phẩm",
+                      "BH hiệu suất",
+                      "Đánh giá",
+                    ].map((h) => (
+                      <th key={h} className="px-4 py-3 font-semibold">
+                        {h}
+                      </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {panels.map(p => (
+                  {panels.map((p) => (
                     <tr key={p.brand} className="border-t border-border hover:bg-secondary/30">
                       <td className="px-4 py-3 font-bold text-primary">{p.brand}</td>
                       <td className="px-4 py-3">{p.origin}</td>
@@ -196,12 +534,87 @@ function VatTuPage() {
                 </tbody>
               </table>
             </div>
-            <div className="grid md:grid-cols-2 gap-4 mt-6">
-              {panels.map(p => (
-                <div key={p.brand} className="p-5 rounded-2xl bg-card border border-border shadow-card">
-                  <div className="font-bold text-lg">{p.brand}</div>
-                  <div className="mt-2 flex gap-2 text-sm"><CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" /><span><b>Ưu:</b> {p.pros}</span></div>
-                  <div className="mt-1 flex gap-2 text-sm"><XCircle className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" /><span><b>Nhược:</b> {p.cons}</span></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {panels.map((p) => (
+                <div
+                  key={p.brand}
+                  className="group rounded-3xl overflow-hidden bg-card border border-border shadow-card hover:shadow-elevated hover:scale-[1.01] transition-all duration-300 flex flex-col"
+                >
+                  {/* Image container */}
+                  <div className="aspect-[4/3] w-full bg-gradient-to-br from-secondary/50 to-secondary/10 flex items-center justify-center p-6 relative overflow-hidden shrink-0 border-b border-border">
+                    <img
+                      src={p.img}
+                      alt={p.brand}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-charcoal/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold shadow-sm text-foreground">
+                      {p.origin}
+                    </div>
+                  </div>
+                  
+                  {/* Card Content */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Title & Rating */}
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                          {p.brand}
+                        </h3>
+                        <div className="flex text-solar tracking-tighter shrink-0 text-sm">
+                          {"★".repeat(p.rating)}
+                          {"☆".repeat(5 - p.rating)}
+                        </div>
+                      </div>
+                      
+                      {/* Specs badges / details */}
+                      <div className="mt-4 grid grid-cols-2 gap-3 text-xs border-b border-border/60 pb-4">
+                        <div>
+                          <span className="text-muted-foreground block mb-0.5">Công suất:</span>
+                          <span className="font-semibold text-foreground">{p.power}</span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground block mb-0.5">Hiệu suất:</span>
+                          <span className="font-semibold text-foreground">{p.eff}</span>
+                        </div>
+                        <div className="col-span-2">
+                          <span className="text-muted-foreground block mb-0.5">Công nghệ Cell:</span>
+                          <span className="font-semibold text-foreground truncate block">{p.cell}</span>
+                        </div>
+                      </div>
+
+                      {/* Pros & Cons */}
+                      <div className="mt-4 space-y-3">
+                        <div className="flex gap-2.5 text-sm">
+                          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                          <div>
+                            <span className="font-bold text-emerald-600 dark:text-emerald-400">Ưu điểm: </span>
+                            <span className="text-muted-foreground">{p.pros}</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-2.5 text-sm">
+                          <XCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                          <div>
+                            <span className="font-bold text-amber-600 dark:text-amber-400">Nhược điểm: </span>
+                            <span className="text-muted-foreground">{p.cons}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Action button */}
+                    <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between">
+                      <div className="text-xs text-muted-foreground">
+                        Bảo hành: <span className="font-bold text-foreground">{p.warrantyP}</span>
+                      </div>
+                      <a
+                        href="tel:0972545686"
+                        className="inline-flex items-center justify-center h-8 px-4 rounded-full bg-secondary text-foreground group-hover:bg-primary group-hover:text-white transition-all text-xs font-semibold"
+                      >
+                        Liên hệ tư vấn
+                      </a>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -211,54 +624,142 @@ function VatTuPage() {
         {/* 2. INVERTERS */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Zap} eyebrow="02 — Inverter" title="Biến tần On-grid & Hybrid" desc="6 thương hiệu inverter Solar Win tin dùng cho hộ gia đình và doanh nghiệp." />
+            <SectionHeader
+              icon={Zap}
+              eyebrow="02 — Inverter"
+              title="Biến tần On-grid & Hybrid"
+              desc="6 thương hiệu inverter Solar Win tin dùng cho hộ gia đình và doanh nghiệp."
+            />
 
             {/* Featured: Pylontech All-in-one Inverter */}
             <div className="mb-10 rounded-3xl overflow-hidden bg-card border border-border shadow-elevated grid md:grid-cols-2 gap-0">
               <div className="bg-gradient-to-br from-secondary/40 to-secondary/10 flex items-center justify-center p-8">
                 <img
-                  src={imageList[6] || ""}
+                  src={img_z0969_185}
                   alt="Biến tần Pylontech Hybrid All-in-one"
                   className="max-h-[420px] w-auto object-contain drop-shadow-xl"
                   loading="lazy"
                 />
               </div>
               <div className="p-8 lg:p-10 flex flex-col justify-center">
-                <span className="text-xs font-semibold tracking-widest text-primary uppercase">Featured · Pylontech</span>
-                <h3 className="mt-2 text-2xl lg:text-3xl font-bold">Biến tần Hybrid Pylontech All-in-one</h3>
+                <span className="text-xs font-semibold tracking-widest text-primary uppercase">
+                  Featured · Pylontech
+                </span>
+                <h3 className="mt-2 text-2xl lg:text-3xl font-bold">
+                  Biến tần Hybrid Pylontech All-in-one
+                </h3>
                 <p className="mt-3 text-muted-foreground">
-                  Giải pháp tích hợp inverter Hybrid + BMS pin lưu trữ trong một thiết bị duy nhất – thiết kế gọn, lắp đặt nhanh, tối ưu cho hộ gia đình và biệt thự hiện đại.
+                  Giải pháp tích hợp inverter Hybrid + BMS pin lưu trữ trong một thiết bị duy nhất –
+                  thiết kế gọn, lắp đặt nhanh, tối ưu cho hộ gia đình và biệt thự hiện đại.
                 </p>
                 <dl className="mt-5 grid grid-cols-2 gap-4 text-sm">
-                  <div><dt className="text-xs text-muted-foreground">Công suất</dt><dd className="font-semibold">5 – 12 kW</dd></div>
-                  <div><dt className="text-xs text-muted-foreground">Hiệu suất</dt><dd className="font-semibold">≥ 97.6%</dd></div>
-                  <div><dt className="text-xs text-muted-foreground">Bảo hành</dt><dd className="font-semibold">10 năm</dd></div>
-                  <div><dt className="text-xs text-muted-foreground">Chuẩn pin</dt><dd className="font-semibold">LiFePO4</dd></div>
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Công suất</dt>
+                    <dd className="font-semibold">5 – 12 kW</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Hiệu suất</dt>
+                    <dd className="font-semibold">≥ 97.6%</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Bảo hành</dt>
+                    <dd className="font-semibold">10 năm</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-muted-foreground">Chuẩn pin</dt>
+                    <dd className="font-semibold">LiFePO4</dd>
+                  </div>
                 </dl>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  <span className="text-xs px-3 py-1 rounded-full bg-solar/20 text-charcoal font-semibold">All-in-one</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold">Hybrid</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-secondary text-foreground font-semibold">EPS backup</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-solar/20 text-charcoal font-semibold">
+                    All-in-one
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-semibold">
+                    Hybrid
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-secondary text-foreground font-semibold">
+                    EPS backup
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {inverters.map(i => (
-                <div key={i.brand} className="rounded-2xl bg-card border border-border shadow-card hover:shadow-elevated transition-all p-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold text-primary">{i.brand}</h3>
-                    <span className="text-xs px-2 py-1 rounded-full bg-solar/20 text-charcoal font-semibold">{i.ip}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {inverters.map((i) => (
+                <div
+                  key={i.brand}
+                  className="group rounded-3xl overflow-hidden bg-card border border-border shadow-card hover:shadow-elevated hover:scale-[1.01] transition-all duration-300 flex flex-col"
+                >
+                  {/* Image container */}
+                  <div className="aspect-[4/3] w-full bg-gradient-to-br from-secondary/50 to-secondary/10 flex items-center justify-center p-6 relative overflow-hidden shrink-0 border-b border-border">
+                    <img
+                      src={i.img}
+                      alt={i.brand}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-charcoal/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold shadow-sm text-foreground">
+                      {i.ip}
+                    </div>
                   </div>
-                  <div className="mt-3 text-sm text-muted-foreground">{i.type}</div>
-                  <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                    <div><dt className="text-xs text-muted-foreground">Công suất</dt><dd className="font-semibold">{i.power}</dd></div>
-                    <div><dt className="text-xs text-muted-foreground">Hiệu suất</dt><dd className="font-semibold">{i.eff}</dd></div>
-                    <div className="col-span-2"><dt className="text-xs text-muted-foreground">Bảo hành</dt><dd className="font-semibold">{i.warranty}</dd></div>
-                  </dl>
-                  <div className="mt-4 pt-4 border-t border-border space-y-2 text-sm">
-                    <div className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" /><span>{i.pros}</span></div>
-                    <div className="flex gap-2"><XCircle className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" /><span>{i.cons}</span></div>
+
+                  {/* Card Content */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Title & Type */}
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                          {i.brand}
+                        </h3>
+                        <span className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary font-semibold">
+                          Inverter
+                        </span>
+                      </div>
+                      <div className="mt-1 text-sm text-muted-foreground">{i.type}</div>
+
+                      {/* Specs Grid */}
+                      <div className="mt-4 grid grid-cols-2 gap-3 text-xs border-b border-border/60 pb-4">
+                        <div>
+                          <span className="text-muted-foreground block mb-0.5">Công suất:</span>
+                          <span className="font-semibold text-foreground">{i.power}</span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground block mb-0.5">Hiệu suất:</span>
+                          <span className="font-semibold text-foreground">{i.eff}</span>
+                        </div>
+                      </div>
+
+                      {/* Pros & Cons */}
+                      <div className="mt-4 space-y-3">
+                        <div className="flex gap-2.5 text-sm">
+                          <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                          <div>
+                            <span className="font-bold text-emerald-600 dark:text-emerald-400">Ưu điểm: </span>
+                            <span className="text-muted-foreground">{i.pros}</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-2.5 text-sm">
+                          <XCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                          <div>
+                            <span className="font-bold text-amber-600 dark:text-amber-400">Nhược điểm: </span>
+                            <span className="text-muted-foreground">{i.cons}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Action button */}
+                    <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between">
+                      <div className="text-xs text-muted-foreground">
+                        Bảo hành: <span className="font-bold text-foreground">{i.warranty}</span>
+                      </div>
+                      <a
+                        href="tel:0972545686"
+                        className="inline-flex items-center justify-center h-8 px-4 rounded-full bg-secondary text-foreground group-hover:bg-primary group-hover:text-white transition-all text-xs font-semibold"
+                      >
+                        Liên hệ tư vấn
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -267,7 +768,10 @@ function VatTuPage() {
         </section>
 
         {/* 3. PYLONTECH — FLAGSHIP */}
-        <section id="pylontech" className="py-24 bg-gradient-to-b from-charcoal to-charcoal/95 text-white relative overflow-hidden">
+        <section
+          id="pylontech"
+          className="py-24 bg-gradient-to-b from-charcoal to-charcoal/95 text-white relative overflow-hidden"
+        >
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom_left,var(--primary),transparent_60%)]" />
           <div className="container mx-auto px-4 lg:px-8 relative">
             <div className="text-center max-w-3xl mx-auto">
@@ -278,27 +782,52 @@ function VatTuPage() {
                 Pin lưu trữ <span className="text-gradient-sun">Pylontech</span>
               </h2>
               <p className="mt-5 text-white/80 text-lg">
-                Pylontech là thương hiệu pin Lithium <strong>LiFePO4</strong> hàng đầu thế giới — độ ổn định cao, tuổi thọ <strong>6.000+ chu kỳ</strong>, tương thích rộng nhất với mọi inverter Hybrid, được sử dụng trong hàng triệu hệ thống điện mặt trời toàn cầu.
+                Pylontech là thương hiệu pin Lithium <strong>LiFePO4</strong> hàng đầu thế giới — độ
+                ổn định cao, tuổi thọ <strong>6.000+ chu kỳ</strong>, tương thích rộng nhất với mọi
+                inverter Hybrid, được sử dụng trong hàng triệu hệ thống điện mặt trời toàn cầu.
               </p>
             </div>
 
             <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pylontechModels.map(m => (
-                <article key={m.name} className="rounded-3xl overflow-hidden bg-white/5 backdrop-blur border border-white/10 hover:border-solar/60 transition-all">
-                  <div className="aspect-[4/3] overflow-hidden bg-charcoal">
-                    <img src={m.img} alt={m.name} loading="lazy" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+              {pylontechModels.map((m) => (
+                <article
+                  key={m.name}
+                  className="rounded-3xl overflow-hidden bg-white/5 backdrop-blur border border-white/10 hover:border-solar/60 transition-all"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-6">
+                    <img
+                      src={m.img}
+                      alt={m.name}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-solar">{m.name}</h3>
                     <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                      <div className="bg-white/5 rounded-lg px-3 py-2"><div className="text-white/60">Dung lượng</div><div className="font-bold">{m.cap}</div></div>
-                      <div className="bg-white/5 rounded-lg px-3 py-2"><div className="text-white/60">Điện áp</div><div className="font-bold">{m.volt}</div></div>
-                      <div className="bg-white/5 rounded-lg px-3 py-2"><div className="text-white/60">Hoá học</div><div className="font-bold">{m.chem}</div></div>
-                      <div className="bg-white/5 rounded-lg px-3 py-2"><div className="text-white/60">Chu kỳ</div><div className="font-bold">{m.cycle}</div></div>
+                      <div className="bg-white/5 rounded-lg px-3 py-2">
+                        <div className="text-white/60">Dung lượng</div>
+                        <div className="font-bold">{m.cap}</div>
+                      </div>
+                      <div className="bg-white/5 rounded-lg px-3 py-2">
+                        <div className="text-white/60">Điện áp</div>
+                        <div className="font-bold">{m.volt}</div>
+                      </div>
+                      <div className="bg-white/5 rounded-lg px-3 py-2">
+                        <div className="text-white/60">Hoá học</div>
+                        <div className="font-bold">{m.chem}</div>
+                      </div>
+                      <div className="bg-white/5 rounded-lg px-3 py-2">
+                        <div className="text-white/60">Chu kỳ</div>
+                        <div className="font-bold">{m.cycle}</div>
+                      </div>
                     </div>
                     <ul className="mt-4 space-y-1.5 text-sm">
-                      {m.pros.map(p => (
-                        <li key={p} className="flex gap-2"><CheckCircle2 className="w-4 h-4 text-solar shrink-0 mt-0.5" /><span className="text-white/85">{p}</span></li>
+                      {m.pros.map((p) => (
+                        <li key={p} className="flex gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-solar shrink-0 mt-0.5" />
+                          <span className="text-white/85">{p}</span>
+                        </li>
                       ))}
                     </ul>
                     <div className="mt-4 pt-4 border-t border-white/10 text-xs text-white/70">
@@ -311,20 +840,42 @@ function VatTuPage() {
 
             {/* COMPARE TABLE */}
             <div className="mt-16">
-              <h3 className="text-2xl lg:text-3xl font-bold text-center">So sánh Pylontech với các thương hiệu khác</h3>
+              <h3 className="text-2xl lg:text-3xl font-bold text-center">
+                So sánh Pylontech với các thương hiệu khác
+              </h3>
               <div className="mt-8 overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
                 <table className="w-full text-sm min-w-[900px]">
                   <thead className="bg-white/10">
                     <tr className="text-left text-white">
-                      {["Thương hiệu","Công nghệ","Chu kỳ","Ổn định","Mở rộng","Tương thích","Bảo hành","Giá","Tổng thể"].map(h => (
-                        <th key={h} className="px-4 py-3 font-semibold">{h}</th>
+                      {[
+                        "Thương hiệu",
+                        "Công nghệ",
+                        "Chu kỳ",
+                        "Ổn định",
+                        "Mở rộng",
+                        "Tương thích",
+                        "Bảo hành",
+                        "Giá",
+                        "Tổng thể",
+                      ].map((h) => (
+                        <th key={h} className="px-4 py-3 font-semibold">
+                          {h}
+                        </th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {pylonCompare.map((r, idx) => (
-                      <tr key={r.brand} className={`border-t border-white/10 ${idx === 0 ? "bg-solar/10" : ""}`}>
-                        <td className={`px-4 py-3 font-bold ${idx === 0 ? "text-solar" : "text-white"}`}>{r.brand}{idx === 0 && " ⭐"}</td>
+                      <tr
+                        key={r.brand}
+                        className={`border-t border-white/10 ${idx === 0 ? "bg-solar/10" : ""}`}
+                      >
+                        <td
+                          className={`px-4 py-3 font-bold ${idx === 0 ? "text-solar" : "text-white"}`}
+                        >
+                          {r.brand}
+                          {idx === 0 && " ⭐"}
+                        </td>
                         <td className="px-4 py-3 text-white/85">{r.chem}</td>
                         <td className="px-4 py-3 text-white/85">{r.cycle}</td>
                         <td className="px-4 py-3 text-solar">{r.stab}</td>
@@ -345,10 +896,18 @@ function VatTuPage() {
         {/* 4. AC/DC CABINET */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Shield} eyebrow="04 — Tủ điện" title="Tủ điện AC/DC & thiết bị bảo vệ" desc="Đảm bảo an toàn cho toàn bộ hệ thống, inverter và pin lưu trữ." />
+            <SectionHeader
+              icon={Shield}
+              eyebrow="04 — Tủ điện"
+              title="Tủ điện AC/DC & thiết bị bảo vệ"
+              desc="Đảm bảo an toàn cho toàn bộ hệ thống, inverter và pin lưu trữ."
+            />
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {acdc.map(x => (
-                <div key={x.name} className="p-5 rounded-2xl bg-card border border-border shadow-card hover:border-primary/40 transition-colors">
+              {acdc.map((x) => (
+                <div
+                  key={x.name}
+                  className="p-5 rounded-2xl bg-card border border-border shadow-card hover:border-primary/40 transition-colors"
+                >
                   <div className="font-bold text-primary">{x.name}</div>
                   <p className="mt-2 text-sm text-muted-foreground">{x.desc}</p>
                 </div>
@@ -360,10 +919,18 @@ function VatTuPage() {
         {/* 5. GROUNDING */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Shield} eyebrow="05 — Tiếp địa & chống sét" title="Hệ thống tiếp địa và chống sét" desc="Bảo vệ inverter, pin lưu trữ và tài sản khỏi sét đánh & dòng rò." />
+            <SectionHeader
+              icon={Shield}
+              eyebrow="05 — Tiếp địa & chống sét"
+              title="Hệ thống tiếp địa và chống sét"
+              desc="Bảo vệ inverter, pin lưu trữ và tài sản khỏi sét đánh & dòng rò."
+            />
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {ground.map(x => (
-                <div key={x.name} className="p-5 rounded-2xl bg-card border border-border shadow-card">
+              {ground.map((x) => (
+                <div
+                  key={x.name}
+                  className="p-5 rounded-2xl bg-card border border-border shadow-card"
+                >
                   <div className="font-bold">{x.name}</div>
                   <p className="mt-2 text-sm text-muted-foreground">{x.desc}</p>
                 </div>
@@ -376,16 +943,33 @@ function VatTuPage() {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <SectionHeader icon={Plug} eyebrow="06 — Đầu nối" title="Đầu nối MC4 chính hãng" desc="" />
+              <SectionHeader
+                icon={Plug}
+                eyebrow="06 — Đầu nối"
+                title="Đầu nối MC4 chính hãng"
+                desc=""
+              />
               <ul className="space-y-3 text-sm">
-                <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> MC4 chính hãng, chuẩn quốc tế</li>
-                <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Chuẩn chống nước <b>IP68</b> – ngâm nước vẫn an toàn</li>
-                <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Chịu UV – không lão hoá ngoài trời 25+ năm</li>
-                <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Kết nối nhanh, tiếp xúc thấp – giảm tổn hao</li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> MC4 chính hãng, chuẩn
+                  quốc tế
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Chuẩn chống nước{" "}
+                  <b>IP68</b> – ngâm nước vẫn an toàn
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Chịu UV – không lão hoá
+                  ngoài trời 25+ năm
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" /> Kết nối nhanh, tiếp xúc
+                  thấp – giảm tổn hao
+                </li>
               </ul>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-elevated">
-              <img src={imageList[7] || ""} alt="Đầu nối MC4 IP68" className="w-full h-full object-cover" />
+              <img src={img_z2597} alt="Đầu nối MC4 IP68" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
@@ -393,19 +977,34 @@ function VatTuPage() {
         {/* 7. CABLES */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Cable} eyebrow="07 — Dây cáp" title="Dây cáp điện mặt trời chuyên dụng" desc="" />
+            <SectionHeader
+              icon={Cable}
+              eyebrow="07 — Dây cáp"
+              title="Dây cáp điện mặt trời chuyên dụng"
+              desc=""
+            />
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {cables.map(c => (
-                <div key={c.name} className="p-5 rounded-2xl bg-card border border-border shadow-card">
+              {cables.map((c) => (
+                <div
+                  key={c.name}
+                  className="p-5 rounded-2xl bg-card border border-border shadow-card"
+                >
                   <div className="font-bold text-primary">{c.name}</div>
                   <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
                 </div>
               ))}
             </div>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <span className="text-sm font-semibold text-muted-foreground">Thương hiệu Solar Win sử dụng:</span>
-              {cableBrands.map(b => (
-                <span key={b} className="px-4 py-2 rounded-full bg-card border border-border text-sm font-semibold">{b}</span>
+              <span className="text-sm font-semibold text-muted-foreground">
+                Thương hiệu Solar Win sử dụng:
+              </span>
+              {cableBrands.map((b) => (
+                <span
+                  key={b}
+                  className="px-4 py-2 rounded-full bg-card border border-border text-sm font-semibold"
+                >
+                  {b}
+                </span>
               ))}
             </div>
           </div>
@@ -414,10 +1013,18 @@ function VatTuPage() {
         {/* 8. RACKING */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Wrench} eyebrow="08 — Khung giá đỡ" title="Hệ khung giá đỡ nhôm – inox" desc="Chịu lực, chống ăn mòn, tuổi thọ 25+ năm." />
+            <SectionHeader
+              icon={Wrench}
+              eyebrow="08 — Khung giá đỡ"
+              title="Hệ khung giá đỡ nhôm – inox"
+              desc="Chịu lực, chống ăn mòn, tuổi thọ 25+ năm."
+            />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {racking.map(r => (
-                <div key={r.name} className="p-5 rounded-2xl bg-card border border-border shadow-card">
+              {racking.map((r) => (
+                <div
+                  key={r.name}
+                  className="p-5 rounded-2xl bg-card border border-border shadow-card"
+                >
                   <div className="font-bold">{r.name}</div>
                   <p className="mt-2 text-sm text-muted-foreground">{r.desc}</p>
                 </div>
@@ -429,10 +1036,20 @@ function VatTuPage() {
         {/* 9. ACCESSORIES */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Wrench} eyebrow="09 — Vật tư phụ" title="Vật tư phụ thi công" desc="" />
+            <SectionHeader
+              icon={Wrench}
+              eyebrow="09 — Vật tư phụ"
+              title="Vật tư phụ thi công"
+              desc=""
+            />
             <div className="flex flex-wrap justify-center gap-3">
-              {accessories.map(a => (
-                <span key={a} className="px-5 py-3 rounded-full bg-card border border-border font-semibold text-sm shadow-card">{a}</span>
+              {accessories.map((a) => (
+                <span
+                  key={a}
+                  className="px-5 py-3 rounded-full bg-card border border-border font-semibold text-sm shadow-card"
+                >
+                  {a}
+                </span>
               ))}
             </div>
           </div>
@@ -441,10 +1058,18 @@ function VatTuPage() {
         {/* 10. SMART */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
-            <SectionHeader icon={Cpu} eyebrow="10 — Giám sát & Smart Home" title="Phụ kiện giám sát thông minh" desc="Theo dõi sản lượng, cảnh báo sự cố 24/7 trên điện thoại." />
+            <SectionHeader
+              icon={Cpu}
+              eyebrow="10 — Giám sát & Smart Home"
+              title="Phụ kiện giám sát thông minh"
+              desc="Theo dõi sản lượng, cảnh báo sự cố 24/7 trên điện thoại."
+            />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {smart.map(s => (
-                <div key={s.name} className="p-5 rounded-2xl bg-card border border-border shadow-card">
+              {smart.map((s) => (
+                <div
+                  key={s.name}
+                  className="p-5 rounded-2xl bg-card border border-border shadow-card"
+                >
                   <div className="font-bold text-primary">{s.name}</div>
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                 </div>
@@ -458,12 +1083,19 @@ function VatTuPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-3xl lg:text-5xl font-extrabold">Giải pháp đề xuất Solar Win</h2>
-              <p className="mt-4 text-primary-foreground/85">Bốn cấu hình tiêu chuẩn cho mọi nhu cầu – từ tiết kiệm điện đến biệt thự cao cấp.</p>
+              <p className="mt-4 text-primary-foreground/85">
+                Bốn cấu hình tiêu chuẩn cho mọi nhu cầu – từ tiết kiệm điện đến biệt thự cao cấp.
+              </p>
             </div>
             <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {solutions.map(s => (
-                <div key={s.title} className="rounded-2xl bg-white/10 backdrop-blur border border-white/20 p-6 hover:bg-white/15 transition-colors">
-                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider bg-solar text-charcoal px-2 py-1 rounded-full">{s.tag}</span>
+              {solutions.map((s) => (
+                <div
+                  key={s.title}
+                  className="rounded-2xl bg-white/10 backdrop-blur border border-white/20 p-6 hover:bg-white/15 transition-colors"
+                >
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider bg-solar text-charcoal px-2 py-1 rounded-full">
+                    {s.tag}
+                  </span>
                   <h3 className="mt-3 text-lg font-bold leading-tight">✅ {s.title}</h3>
                   <p className="mt-2 text-sm text-white/85">{s.desc}</p>
                 </div>
@@ -471,19 +1103,29 @@ function VatTuPage() {
             </div>
 
             <div className="mt-12 flex flex-wrap justify-center gap-3">
-              <a href="#quote" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-charcoal text-white font-semibold shadow-elevated hover:scale-105 transition-transform">
+              <a
+                href="#quote"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-charcoal text-white font-semibold shadow-elevated hover:scale-105 transition-transform"
+              >
                 <Phone className="w-4 h-4" /> Nhận báo giá
               </a>
-              <a href="https://www.facebook.com/DienmattroiSolarwin.vn" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-white text-primary font-semibold hover:scale-105 transition-transform">
+              <a
+                href="https://www.facebook.com/DienmattroiSolarwin.vn"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-white text-primary font-semibold hover:scale-105 transition-transform"
+              >
                 <MessageSquare className="w-4 h-4" /> Tư vấn miễn phí
               </a>
-              <a href="tel:0972545686" className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-solar text-charcoal font-semibold hover:scale-105 transition-transform">
+              <a
+                href="tel:0972545686"
+                className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-solar text-charcoal font-semibold hover:scale-105 transition-transform"
+              >
                 <MessageCircle className="w-4 h-4" /> Kỹ thuật Solar Win
               </a>
             </div>
           </div>
         </section>
-
       </main>
       <Footer />
       <FloatingActions />

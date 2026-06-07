@@ -23,14 +23,13 @@ export function Hero() {
           </span>
 
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05]">
-            Tiết Kiệm Đến{" "}
-            <span className="text-gradient-sun">90% Tiền Điện</span>{" "}
-            Với Giải Pháp Điện Mặt Trời{" "}
-            <span className="text-solar">Solar Win</span>
+            Tiết Kiệm Đến <span className="text-gradient-sun">90% Tiền Điện</span> Với Giải Pháp
+            Điện Mặt Trời <span className="text-solar">Solar Win</span>
           </h1>
 
           <p className="mt-6 text-lg lg:text-xl text-white/85 max-w-2xl">
-            Tư vấn – thiết kế – thi công trọn gói hệ thống điện năng lượng mặt trời cho hộ gia đình và doanh nghiệp tại Nghệ An và các tỉnh lân cận. Thiết bị chính hãng, bảo hành dài hạn.
+            Tư vấn – thiết kế – thi công trọn gói hệ thống điện năng lượng mặt trời cho hộ gia đình
+            và doanh nghiệp tại Nghệ An và các tỉnh lân cận. Thiết bị chính hãng, bảo hành dài hạn.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

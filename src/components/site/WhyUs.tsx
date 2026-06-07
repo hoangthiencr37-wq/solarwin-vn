@@ -1,11 +1,31 @@
 import { ShieldCheck, Users, Award, Headphones, Hammer } from "lucide-react";
 
 const reasons = [
-  { icon: Users, title: "Đội ngũ kỹ sư giàu kinh nghiệm", desc: "Hơn 50 kỹ sư & kỹ thuật viên được đào tạo bài bản, thi công hàng trăm công trình." },
-  { icon: Hammer, title: "Thi công đúng tiêu chuẩn", desc: "Tuân thủ TCVN, IEC quốc tế. An toàn điện và chống thấm tuyệt đối." },
-  { icon: Award, title: "Thiết bị chính hãng", desc: "Phân phối tấm pin & inverter từ JA Solar, Longi, Huawei, Sungrow, Deye." },
-  { icon: ShieldCheck, title: "Bảo hành lâu dài", desc: "Pin 25 năm hiệu suất, inverter 10 năm, thi công 5 năm – cam kết bằng văn bản." },
-  { icon: Headphones, title: "Hỗ trợ kỹ thuật nhanh", desc: "Hotline 24/7, kỹ thuật viên có mặt trong vòng 4 giờ tại Nghệ An." },
+  {
+    icon: Users,
+    title: "Đội ngũ kỹ sư giàu kinh nghiệm",
+    desc: "Hơn 50 kỹ sư & kỹ thuật viên được đào tạo bài bản, thi công hàng trăm công trình.",
+  },
+  {
+    icon: Hammer,
+    title: "Thi công đúng tiêu chuẩn",
+    desc: "Tuân thủ TCVN, IEC quốc tế. An toàn điện và chống thấm tuyệt đối.",
+  },
+  {
+    icon: Award,
+    title: "Thiết bị chính hãng",
+    desc: "Phân phối tấm pin & inverter từ JA Solar, Longi, Huawei, Sungrow, Deye.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Bảo hành lâu dài",
+    desc: "Pin 25 năm hiệu suất, inverter 10 năm, thi công 5 năm – cam kết bằng văn bản.",
+  },
+  {
+    icon: Headphones,
+    title: "Hỗ trợ kỹ thuật nhanh",
+    desc: "Hotline 24/7, kỹ thuật viên có mặt trong vòng 4 giờ tại Nghệ An.",
+  },
 ];
 
 const stats = [
@@ -17,13 +37,18 @@ const stats = [
 
 export function WhyUs() {
   return (
-    <section id="why" className="py-20 lg:py-28 bg-charcoal text-charcoal-foreground relative overflow-hidden">
+    <section
+      id="why"
+      className="py-20 lg:py-28 bg-charcoal text-charcoal-foreground relative overflow-hidden"
+    >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/20 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-solar/15 blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="text-sm font-semibold text-solar uppercase tracking-wider">Tại sao chọn Solar Win</span>
+          <span className="text-sm font-semibold text-solar uppercase tracking-wider">
+            Tại sao chọn Solar Win
+          </span>
           <h2 className="mt-3 text-3xl lg:text-5xl font-bold">
             5 lý do khách hàng <span className="text-gradient-sun">tin tưởng</span> chúng tôi
           </h2>

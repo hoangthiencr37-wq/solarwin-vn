@@ -1,15 +1,42 @@
-import factory from "@/assets/project-factory.jpg";
+import factoryHoangGia from "@/assets/real/Nhà xưởng may mặc Hoàng Gia.png";
 import { MapPin, Zap, TrendingDown, Activity } from "lucide-react";
-
-// Dynamically import all real JPEG photos uploaded by the user (starts with z)
-const images = import.meta.glob<{ default: string }>("../../assets/real/z*.jpg", { eager: true });
-const imageList = Object.values(images).map((mod) => mod.default);
+import maiNhaPho from "@/assets/real/mai_nha_pho.jpg";
+import lapdattraiga from "@/assets/real/lapdattraiga.jpg";
+import img_z0825_600 from "@/assets/real/z7910630825600_3eec94885632d4568239b97536fedb0a.jpg";
 
 const projects = [
-  { img: imageList[0] || "", title: "Gia đình anh Hùng", power: "10 kWp", location: "TP. Vinh, Nghệ An", output: "1.350 kWh/tháng", saving: "Tiết kiệm 3,2 triệu/tháng" },
-  { img: factory, title: "Nhà xưởng may mặc Hoàng Gia", power: "250 kWp", location: "KCN Bắc Vinh", output: "32.000 kWh/tháng", saving: "Tiết kiệm 78 triệu/tháng" },
-  { img: imageList[15] || imageList[1] || "", title: "Trạm sạc xe điện SolarEV Hà Nội", power: "60 kWp", location: "Hà Nội", output: "8.100 kWh/tháng", saving: "12 trụ sạc 24/7" },
-  { img: imageList[16] || imageList[2] || "", title: "Hệ thống lưu trữ gia đình", power: "8 kWp + 15 kWh", location: "Diễn Châu, Nghệ An", output: "1.080 kWh/tháng", saving: "Backup 12 giờ mất điện" },
+  {
+    img: maiNhaPho,
+    title: "Gia đình anh Hùng",
+    power: "10 kWp",
+    location: "TP. Vinh, Nghệ An",
+    output: "1.350 kWh/tháng",
+    saving: "Tiết kiệm 3,2 triệu/tháng",
+  },
+  {
+    img: factoryHoangGia,
+    title: "Nhà xưởng may mặc Hoàng Gia",
+    power: "250 kWp",
+    location: "KCN Bắc Vinh",
+    output: "32.000 kWh/tháng",
+    saving: "Tiết kiệm 78 triệu/tháng",
+  },
+  {
+    img: lapdattraiga,
+    title: "Lắp đặt cho trang trại gà",
+    power: "20 kWp",
+    location: "Nghệ An",
+    output: "2.700 kWh/tháng",
+    saving: "Tiết kiệm 6,5 triệu/tháng",
+  },
+  {
+    img: img_z0825_600,
+    title: "Hệ thống lưu trữ gia đình",
+    power: "8 kWp + 15 kWh",
+    location: "Diễn Châu, Nghệ An",
+    output: "1.080 kWh/tháng",
+    saving: "Backup 12 giờ mất điện",
+  },
 ];
 
 export function Projects() {
@@ -18,19 +45,25 @@ export function Projects() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Dự án tiêu biểu</span>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+              Dự án tiêu biểu
+            </span>
             <h2 className="mt-3 text-3xl lg:text-5xl font-bold">
               Hàng trăm công trình <span className="text-gradient-sun">đã vận hành</span>
             </h2>
           </div>
           <p className="text-muted-foreground lg:max-w-md">
-            Mỗi dự án là một câu chuyện về tiết kiệm và sự tin tưởng. Khám phá những công trình tiêu biểu Solar Win đã thực hiện.
+            Mỗi dự án là một câu chuyện về tiết kiệm và sự tin tưởng. Khám phá những công trình tiêu
+            biểu Solar Win đã thực hiện.
           </p>
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
-            <article key={p.title} className="group rounded-3xl overflow-hidden bg-card border border-border shadow-card hover:shadow-elevated transition-all duration-500">
+            <article
+              key={p.title}
+              className="group rounded-3xl overflow-hidden bg-card border border-border shadow-card hover:shadow-elevated transition-all duration-500"
+            >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
                   src={p.img}
@@ -50,15 +83,21 @@ export function Projects() {
               </div>
               <div className="p-6 grid grid-cols-3 gap-4 text-sm">
                 <div>
-                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs"><MapPin className="w-3.5 h-3.5" /> Địa điểm</div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                    <MapPin className="w-3.5 h-3.5" /> Địa điểm
+                  </div>
                   <div className="mt-1 font-semibold">{p.location}</div>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs"><Activity className="w-3.5 h-3.5" /> Sản lượng</div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                    <Activity className="w-3.5 h-3.5" /> Sản lượng
+                  </div>
                   <div className="mt-1 font-semibold">{p.output}</div>
                 </div>
                 <div>
-                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs"><TrendingDown className="w-3.5 h-3.5" /> Hiệu quả</div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                    <TrendingDown className="w-3.5 h-3.5" /> Hiệu quả
+                  </div>
                   <div className="mt-1 font-semibold text-primary">{p.saving}</div>
                 </div>
               </div>

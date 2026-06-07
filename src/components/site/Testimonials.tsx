@@ -2,10 +2,26 @@ import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const items = [
-  { name: "Anh Nguyễn Văn Hùng", role: "Chủ hộ – TP. Vinh", text: "Lắp 10kWp từ Solar Win, mỗi tháng tiền điện chỉ còn 200k thay vì 3,5 triệu. Đội thi công cực kỳ chuyên nghiệp, sạch sẽ." },
-  { name: "Chị Trần Thị Lan", role: "Giám đốc nhà xưởng – KCN Bắc Vinh", text: "Hệ thống 250kWp giúp doanh nghiệp tiết kiệm 80 triệu/tháng. Hoàn vốn dự kiến chỉ trong 3,5 năm. Rất hài lòng!" },
-  { name: "Anh Lê Minh Đức", role: "Chủ villa – Cửa Lò", text: "Đầu tư hệ thống lưu trữ 15kWh, mất điện cả ngày vẫn dùng điều hoà thoải mái. Tư vấn tận tâm, hậu mãi tốt." },
-  { name: "Chị Phạm Thị Hoa", role: "Chủ homestay – Diễn Châu", text: "Solar Win lắp đặt nhanh, đúng tiến độ. Giờ homestay quảng bá điểm cộng năng lượng xanh, khách quốc tế rất thích." },
+  {
+    name: "Anh Nguyễn Văn Hùng",
+    role: "Chủ hộ – TP. Vinh",
+    text: "Lắp 10kWp từ Solar Win, mỗi tháng tiền điện chỉ còn 200k thay vì 3,5 triệu. Đội thi công cực kỳ chuyên nghiệp, sạch sẽ.",
+  },
+  {
+    name: "Chị Trần Thị Lan",
+    role: "Giám đốc nhà xưởng – KCN Bắc Vinh",
+    text: "Hệ thống 250kWp giúp doanh nghiệp tiết kiệm 80 triệu/tháng. Hoàn vốn dự kiến chỉ trong 3,5 năm. Rất hài lòng!",
+  },
+  {
+    name: "Anh Lê Minh Đức",
+    role: "Chủ villa – Cửa Lò",
+    text: "Đầu tư hệ thống lưu trữ 15kWh, mất điện cả ngày vẫn dùng điều hoà thoải mái. Tư vấn tận tâm, hậu mãi tốt.",
+  },
+  {
+    name: "Chị Phạm Thị Hoa",
+    role: "Chủ homestay – Diễn Châu",
+    text: "Solar Win lắp đặt nhanh, đúng tiến độ. Giờ homestay quảng bá điểm cộng năng lượng xanh, khách quốc tế rất thích.",
+  },
 ];
 
 export function Testimonials() {
@@ -18,7 +34,9 @@ export function Testimonials() {
     <section id="testimonials" className="py-20 lg:py-28 bg-secondary/50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Đánh giá khách hàng</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+            Đánh giá khách hàng
+          </span>
           <h2 className="mt-3 text-3xl lg:text-5xl font-bold">
             Niềm tin từ <span className="text-gradient-sun">hàng nghìn khách hàng</span>
           </h2>
@@ -47,7 +65,11 @@ export function Testimonials() {
           </div>
 
           <div className="mt-6 flex items-center justify-center gap-4">
-            <button onClick={prev} aria-label="Trước" className="w-12 h-12 rounded-full bg-card border border-border hover:bg-primary hover:text-primary-foreground transition-colors grid place-items-center shadow-card">
+            <button
+              onClick={prev}
+              aria-label="Trước"
+              className="w-12 h-12 rounded-full bg-card border border-border hover:bg-primary hover:text-primary-foreground transition-colors grid place-items-center shadow-card"
+            >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <div className="flex gap-2">
@@ -60,7 +82,11 @@ export function Testimonials() {
                 />
               ))}
             </div>
-            <button onClick={next} aria-label="Sau" className="w-12 h-12 rounded-full bg-card border border-border hover:bg-primary hover:text-primary-foreground transition-colors grid place-items-center shadow-card">
+            <button
+              onClick={next}
+              aria-label="Sau"
+              className="w-12 h-12 rounded-full bg-card border border-border hover:bg-primary hover:text-primary-foreground transition-colors grid place-items-center shadow-card"
+            >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>

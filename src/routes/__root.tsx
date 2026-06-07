@@ -78,15 +78,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Solar Win – Điện mặt trời Nghệ An | Tiết kiệm 90% tiền điện" },
-      { name: "description", content: "Tư vấn, thiết kế, thi công lắp đặt điện mặt trời tại Vinh, Nghệ An chuyên nghiệp, uy tín. Thiết bị chính hãng SolaX, Pylontech." },
+      {
+        name: "description",
+        content:
+          "Tư vấn, thiết kế, thi công lắp đặt điện mặt trời tại Vinh, Nghệ An chuyên nghiệp, uy tín. Thiết bị chính hãng SolaX, Pylontech.",
+      },
       { name: "author", content: "Solar Win" },
       { property: "og:title", content: "Solar Win – Điện mặt trời Nghệ An" },
-      { property: "og:description", content: "Hệ thống điện năng lượng mặt trời áp mái hộ gia đình & doanh nghiệp tại Nghệ An. Tiết kiệm 90% tiền điện." },
+      {
+        property: "og:description",
+        content:
+          "Hệ thống điện năng lượng mặt trời áp mái hộ gia đình & doanh nghiệp tại Nghệ An. Tiết kiệm 90% tiền điện.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@solarwin" },
       { name: "twitter:title", content: "Solar Win – Điện mặt trời Nghệ An" },
-      { name: "twitter:description", content: "Hệ thống điện năng lượng mặt trời áp mái hộ gia đình & doanh nghiệp tại Nghệ An. Tiết kiệm 90% tiền điện." },
+      {
+        name: "twitter:description",
+        content:
+          "Hệ thống điện năng lượng mặt trời áp mái hộ gia đình & doanh nghiệp tại Nghệ An. Tiết kiệm 90% tiền điện.",
+      },
       { property: "og:image", content: "/logo.png" },
       { name: "twitter:image", content: "/logo.png" },
     ],

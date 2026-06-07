@@ -1,11 +1,31 @@
 import { Home, Factory, Battery, Zap, Wrench } from "lucide-react";
 
 const services = [
-  { icon: Home, title: "Điện mặt trời hộ gia đình", desc: "Hệ thống 3kWp – 20kWp tối ưu cho mái nhà. Tiết kiệm tới 90% hoá đơn điện." },
-  { icon: Factory, title: "Điện mặt trời doanh nghiệp", desc: "Giải pháp công suất lớn cho nhà xưởng, văn phòng, khu công nghiệp." },
-  { icon: Battery, title: "Hệ thống pin lưu trữ", desc: "Pin Lithium dung lượng cao, kết hợp inverter hybrid chống mất điện." },
-  { icon: Zap, title: "Trạm sạc xe điện", desc: "Lắp đặt trạm sạc AC/DC cho hộ gia đình, văn phòng và bãi xe công cộng." },
-  { icon: Wrench, title: "Bảo trì & nâng cấp", desc: "Vệ sinh tấm pin, kiểm tra inverter, nâng cấp công suất theo nhu cầu." },
+  {
+    icon: Home,
+    title: "Điện mặt trời hộ gia đình",
+    desc: "Hệ thống 3kWp – 20kWp tối ưu cho mái nhà. Tiết kiệm tới 90% hoá đơn điện.",
+  },
+  {
+    icon: Factory,
+    title: "Điện mặt trời doanh nghiệp",
+    desc: "Giải pháp công suất lớn cho nhà xưởng, văn phòng, khu công nghiệp.",
+  },
+  {
+    icon: Battery,
+    title: "Hệ thống pin lưu trữ",
+    desc: "Pin Lithium dung lượng cao, kết hợp inverter hybrid chống mất điện.",
+  },
+  {
+    icon: Zap,
+    title: "Trạm sạc xe điện",
+    desc: "Lắp đặt trạm sạc AC/DC cho hộ gia đình, văn phòng và bãi xe công cộng.",
+  },
+  {
+    icon: Wrench,
+    title: "Bảo trì & nâng cấp",
+    desc: "Vệ sinh tấm pin, kiểm tra inverter, nâng cấp công suất theo nhu cầu.",
+  },
 ];
 
 export function Services() {
@@ -13,12 +33,15 @@ export function Services() {
     <section id="services" className="py-20 lg:py-28 bg-secondary/50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Dịch vụ</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+            Dịch vụ
+          </span>
           <h2 className="mt-3 text-3xl lg:text-5xl font-bold">
             Giải pháp <span className="text-gradient-sun">trọn gói</span> – một điểm đến
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Từ tư vấn, thiết kế, thi công đến bảo trì – Solar Win đồng hành cùng bạn trọn vòng đời hệ thống.
+            Từ tư vấn, thiết kế, thi công đến bảo trì – Solar Win đồng hành cùng bạn trọn vòng đời
+            hệ thống.
           </p>
         </div>
 
@@ -37,7 +60,9 @@ export function Services() {
                   <span className="text-4xl font-bold text-primary/30 group-hover:text-white/40 transition-colors">
                     0{i + 1}
                   </span>
-                  <h3 className="text-xl font-bold group-hover:text-white transition-colors">{s.title}</h3>
+                  <h3 className="text-xl font-bold group-hover:text-white transition-colors">
+                    {s.title}
+                  </h3>
                 </div>
                 <p className="mt-3 text-muted-foreground group-hover:text-white/90 transition-colors">
                   {s.desc}
