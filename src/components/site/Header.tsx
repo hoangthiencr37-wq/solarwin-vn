@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoRed from "@/assets/real/solarwin-logo-new.jpg.asset.json";
+import logoRed from "@/assets/real/logo.jpg";
 
 const links = [
   { href: "/#about", label: "Giới thiệu" },
@@ -32,7 +32,7 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
         <a href="#top" className="flex items-center gap-3 group">
           <img
-            src={logoRed.url}
+            src={logoRed}
             alt="Solar Win logo"
             className="h-12 lg:h-14 w-auto object-contain drop-shadow-md rounded-md"
           />

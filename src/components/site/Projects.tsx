@@ -1,14 +1,15 @@
 import factory from "@/assets/project-factory.jpg";
-import roofVilla from "@/assets/real/roof-villa.jpg.asset.json";
-import evHanoi from "@/assets/real/ev-station-hanoi.png.asset.json";
-import batteryHome from "@/assets/real/battery-home.jpg.asset.json";
 import { MapPin, Zap, TrendingDown, Activity } from "lucide-react";
 
+// Dynamically import all real JPEG photos uploaded by the user (starts with z)
+const images = import.meta.glob<{ default: string }>("../../assets/real/z*.jpg", { eager: true });
+const imageList = Object.values(images).map((mod) => mod.default);
+
 const projects = [
-  { img: roofVilla.url, title: "Gia đình anh Hùng", power: "10 kWp", location: "TP. Vinh, Nghệ An", output: "1.350 kWh/tháng", saving: "Tiết kiệm 3,2 triệu/tháng" },
+  { img: imageList[0] || "", title: "Gia đình anh Hùng", power: "10 kWp", location: "TP. Vinh, Nghệ An", output: "1.350 kWh/tháng", saving: "Tiết kiệm 3,2 triệu/tháng" },
   { img: factory, title: "Nhà xưởng may mặc Hoàng Gia", power: "250 kWp", location: "KCN Bắc Vinh", output: "32.000 kWh/tháng", saving: "Tiết kiệm 78 triệu/tháng" },
-  { img: evHanoi.url, title: "Trạm sạc xe điện SolarEV Hà Nội", power: "60 kWp", location: "Hà Nội", output: "8.100 kWh/tháng", saving: "12 trụ sạc 24/7" },
-  { img: batteryHome.url, title: "Hệ thống lưu trữ gia đình", power: "8 kWp + 15 kWh", location: "Diễn Châu, Nghệ An", output: "1.080 kWh/tháng", saving: "Backup 12 giờ mất điện" },
+  { img: imageList[15] || imageList[1] || "", title: "Trạm sạc xe điện SolarEV Hà Nội", power: "60 kWp", location: "Hà Nội", output: "8.100 kWh/tháng", saving: "12 trụ sạc 24/7" },
+  { img: imageList[16] || imageList[2] || "", title: "Hệ thống lưu trữ gia đình", power: "8 kWp + 15 kWh", location: "Diễn Châu, Nghệ An", output: "1.080 kWh/tháng", saving: "Backup 12 giờ mất điện" },
 ];
 
 export function Projects() {

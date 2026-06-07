@@ -6,15 +6,11 @@ import { Toaster } from "sonner";
 import {
   Sun, Zap, Battery, Shield, Cable, Wrench, Cpu, Plug, Phone, MessageSquare, MessageCircle, CheckCircle2, XCircle, Star
 } from "lucide-react";
-import solaxPylontech from "@/assets/real/solax-pylontech.jpg.asset.json";
-import solaxBatteryFull from "@/assets/real/solax-battery-full.jpg.asset.json";
-import pylontechDelivery from "@/assets/real/pylontech-delivery.jpg.asset.json";
-import inverterLithium from "@/assets/real/inverter-lithium.jpg.asset.json";
-import solaxInverter from "@/assets/real/solax-inverter.jpg.asset.json";
-import pylontechInverter from "@/assets/real/pylontech-inverter.png.asset.json";
-import roofVilla from "@/assets/real/roof-villa.jpg.asset.json";
-import panelConnector from "@/assets/real/panel-connector.jpg.asset.json";
-import installKitchen from "@/assets/real/install-kitchen.jpg.asset.json";
+import logoImg from "@/assets/real/logo.jpg";
+
+// Dynamically import all real JPEG photos uploaded by the user (starts with z)
+const images = import.meta.glob<{ default: string }>("../assets/real/z*.jpg", { eager: true });
+const imageList = Object.values(images).map((mod) => mod.default);
 
 export const Route = createFileRoute("/vat-tu")({
   head: () => ({
@@ -23,7 +19,7 @@ export const Route = createFileRoute("/vat-tu")({
       { name: "description", content: "Catalogue đầy đủ vật tư điện năng lượng mặt trời: tấm pin JA Solar/LONGi/Jinko, inverter SolaX/Huawei/Solis, pin lưu trữ Pylontech US3000C, US5000, Fidus Plus 16kWh, Force H1/H2/H3, tủ điện AC/DC, MC4, khung giá đỡ." },
       { property: "og:title", content: "Danh mục vật tư điện mặt trời – Solar Win" },
       { property: "og:description", content: "Pylontech – Sản phẩm chủ lực Solar Win. Catalogue vật tư đầy đủ, chính hãng." },
-      { property: "og:image", content: solaxBatteryFull.url },
+      { property: "og:image", content: logoImg },
     ],
     links: [{ rel: "canonical", href: "/vat-tu" }],
   }),
@@ -50,17 +46,17 @@ const inverters = [
 ];
 
 const pylontechModels = [
-  { name: "Pylontech US3000C", cap: "3.5 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: pylontechDelivery.url,
+  { name: "Pylontech US3000C", cap: "3.5 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[3] || "",
     pros: ["Giá hợp lý nhất phân khúc", "Module nhỏ, dễ vận chuyển", "Mở rộng song song dễ dàng"], use: "Hộ gia đình nhỏ, backup cơ bản" },
-  { name: "Pylontech US5000", cap: "4.8 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: solaxPylontech.url,
+  { name: "Pylontech US5000", cap: "4.8 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[4] || "",
     pros: ["Bán chạy nhất Việt Nam", "Tương thích SolaX, Deye, Sungrow, Growatt", "Hiệu suất xả 100% DOD"], use: "Hộ gia đình 5–15 kWh" },
-  { name: "Pylontech Fidus Plus 16 kWh", cap: "16 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: solaxBatteryFull.url,
+  { name: "Pylontech Fidus Plus 16 kWh", cap: "16 kWh", volt: "48V (LV)", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[2] || "",
     pros: ["Thiết kế dạng tủ đứng cao cấp", "Lắp đặt nhanh – plug & play", "Phù hợp biệt thự, nhà phố lớn"], use: "Biệt thự, hệ Hybrid 8–15 kWp" },
-  { name: "Pylontech Force H1", cap: "3.55 – 17.76 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: inverterLithium.url,
+  { name: "Pylontech Force H1", cap: "3.55 – 17.76 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[5] || "",
     pros: ["Điện áp cao, hiệu suất tốt", "Modular dễ mở rộng", "Tích hợp BMS thông minh"], use: "Inverter HV: Sungrow, GoodWe" },
-  { name: "Pylontech Force H2", cap: "7.1 – 24.86 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: solaxBatteryFull.url,
+  { name: "Pylontech Force H2", cap: "7.1 – 24.86 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[2] || "",
     pros: ["HV thế hệ mới", "Modular, dung lượng linh hoạt", "Hiệu suất sạc/xả >95%"], use: "Hệ 10–25 kWh cao cấp" },
-  { name: "Pylontech Force H3", cap: "10.65 – 28.4 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: solaxPylontech.url,
+  { name: "Pylontech Force H3", cap: "10.65 – 28.4 kWh", volt: "High Voltage", chem: "LiFePO4", cycle: "≥6.000 chu kỳ", img: imageList[4] || "",
     pros: ["Dòng cao cấp nhất Pylontech", "Thiết kế hiện đại, gọn", "Tương thích inverter HV mới nhất"], use: "Biệt thự lớn, doanh nghiệp nhỏ" },
 ];
 
@@ -221,7 +217,7 @@ function VatTuPage() {
             <div className="mb-10 rounded-3xl overflow-hidden bg-card border border-border shadow-elevated grid md:grid-cols-2 gap-0">
               <div className="bg-gradient-to-br from-secondary/40 to-secondary/10 flex items-center justify-center p-8">
                 <img
-                  src={pylontechInverter.url}
+                  src={imageList[6] || ""}
                   alt="Biến tần Pylontech Hybrid All-in-one"
                   className="max-h-[420px] w-auto object-contain drop-shadow-xl"
                   loading="lazy"
@@ -389,7 +385,7 @@ function VatTuPage() {
               </ul>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-elevated">
-              <img src={panelConnector.url} alt="Đầu nối MC4 IP68" className="w-full h-full object-cover" />
+              <img src={imageList[7] || ""} alt="Đầu nối MC4 IP68" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
