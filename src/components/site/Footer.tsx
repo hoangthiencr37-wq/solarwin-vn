@@ -1,4 +1,5 @@
-import { Sun, Phone, Mail, MapPin } from "lucide-react";
+import logoRed from "@/assets/real/logo.jpg";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -6,10 +7,12 @@ export function Footer() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="w-10 h-10 rounded-xl bg-gradient-sun grid place-items-center shadow-solar">
-                <Sun className="w-5 h-5 text-charcoal" strokeWidth={2.5} />
-              </span>
+            <div className="flex items-center gap-3">
+              <img
+                src={logoRed}
+                alt="Solar Win logo"
+                className="w-10 h-10 object-contain rounded-md"
+              />
               <div>
                 <div className="font-bold text-lg">Solar<span className="text-solar">Win</span></div>
                 <div className="text-xs text-white/60">Dựng xây tổ ấm Việt</div>

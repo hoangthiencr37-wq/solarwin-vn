@@ -87,10 +87,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@solarwin" },
       { name: "twitter:title", content: "Solar Win – Điện mặt trời Nghệ An" },
       { name: "twitter:description", content: "Hệ thống điện năng lượng mặt trời áp mái hộ gia đình & doanh nghiệp tại Nghệ An. Tiết kiệm 90% tiền điện." },
-      { property: "og:image", content: "/favicon.ico" },
-      { name: "twitter:image", content: "/favicon.ico" },
+      { property: "og:image", content: "/logo.png" },
+      { name: "twitter:image", content: "/logo.png" },
     ],
     links: [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/logo.png",
+      },
       {
         rel: "stylesheet",
         href: appCss,
