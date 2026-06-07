@@ -12,7 +12,7 @@ const links = [
   { href: "/#contact", label: "Liên hệ" },
 ];
 
-export function Header() {
+export function Header({ transparent = false }: { transparent?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -23,10 +23,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isTransparent = transparent && !scrolled;
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
-        scrolled ? "bg-background/85 backdrop-blur-xl shadow-card" : "bg-transparent"
+        isTransparent ? "bg-transparent" : "bg-background/85 backdrop-blur-xl shadow-card"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-16 lg:h-20">
@@ -36,7 +38,7 @@ export function Header() {
             alt="Solar Win logo"
             className="h-12 lg:h-14 w-auto object-contain drop-shadow-md rounded-md"
           />
-          <span className={`hidden sm:block text-[11px] font-medium leading-tight max-w-[140px] ${scrolled ? "text-muted-foreground" : "text-white/80"}`}>
+          <span className={`hidden sm:block text-[11px] font-medium leading-tight max-w-[140px] ${isTransparent ? "text-white/80" : "text-muted-foreground"}`}>
             Dựng xây<br/>tổ ấm Việt
           </span>
         </a>
@@ -47,7 +49,7 @@ export function Header() {
               key={l.href}
               href={l.href}
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                scrolled ? "text-foreground" : "text-white/90"
+                isTransparent ? "text-white/90" : "text-foreground"
               }`}
             >
               {l.label}
@@ -65,7 +67,7 @@ export function Header() {
         <button
           aria-label="Menu"
           onClick={() => setOpen(!open)}
-          className={`lg:hidden p-2 rounded-md ${scrolled ? "text-charcoal" : "text-white"}`}
+          className={`lg:hidden p-2 rounded-md ${isTransparent ? "text-white" : "text-charcoal"}`}
         >
           {open ? <X /> : <Menu />}
         </button>
