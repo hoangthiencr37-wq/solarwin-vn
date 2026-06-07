@@ -1,4 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react";
+import zaloIcon from "@/assets/real/zalo.png";
 
 export function FloatingActions() {
   return (
@@ -9,9 +10,9 @@ export function FloatingActions() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Nhắn tin Zalo"
-          className="w-14 h-14 rounded-full bg-[#0068ff] grid place-items-center text-white shadow-elevated hover:scale-110 transition-transform"
+          className="w-14 h-14 rounded-full bg-white shadow-elevated hover:scale-110 transition-transform flex items-center justify-center p-2.5 border border-border/40"
         >
-          <span className="font-bold text-sm">Zalo</span>
+          <img src={zaloIcon} alt="Zalo" className="w-full h-full object-contain" />
         </a>
         <a
           href="https://www.facebook.com/DienmattroiSolarwin.vn"
